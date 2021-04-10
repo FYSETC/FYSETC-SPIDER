@@ -23,8 +23,8 @@
 
 #if NOT_TARGET(STM32F4)
   #error "Oops! Select an STM32F4 board in 'Tools > Board.'"
-#elif HOTENDS > 3 || E_STEPPERS > 3
-  #error "RUMBA32 supports up to 3 hotends / E-steppers."
+#elif HOTENDS > 5 || E_STEPPERS > 5
+  #error "SPIDER supports up to 5 hotends / E-steppers."
 #endif
 
 #ifndef BOARD_INFO_NAME
