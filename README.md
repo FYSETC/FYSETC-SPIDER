@@ -106,8 +106,10 @@ Do as the red number shows in the screen shot.
 3. Choose the "firmware.bin" file.
 4. fill in the 'Start address' with 0x8010000
 5. Start Programming
+## How to buy
+- [FYSETC](https://www.fysetc.com/products/pre-sale-fysetc-spider-v1-0-motherboard-32bit-controller-board-tmc2208-tmc2209-3d-printer-part-replace-skr-v1-3-for-voron?variant=39404109267119)
+- [Aliexpress](https://www.aliexpress.com/item/1005002324070189.html)
 
 ## Tech Support
-
 You can submit issue in our github https://github.com/FYSETC/FYSETC-SPIDER/issues
 Or submit any technical issue into our [forum](http://forum.fysetc.com/) 
