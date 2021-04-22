@@ -16,6 +16,12 @@ And  you need to enable uart0 in RPI. You need to add the following line to /boo
 dtoverlay=uart0
 ```
 
+If you need to restart Klipper please use the following command
+
+```
+RESTART
+```
+
 The main point to have klipper-UART0.bin is that you need to select `Communication interface` to `Serial (on USART1 PA10/PA9)` in `make menuconfig` when you compile Klipper.
 
 We make a cable as below , and it have the power cable in it two, so you can power the RPI with it.
