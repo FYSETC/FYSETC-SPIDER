@@ -48,7 +48,7 @@ sudo reboot
 
 Done.
 
-The main point to have klipper-UART0.bin is that you need to select `Communication interface` to `Serial (on USART1 PA10/PA9)` in `make menuconfig` when you compile Klipper.
+The main point to build klipper-UART0.bin is that you need to select `Communication interface` to `Serial (on USART1 PA10/PA9)` in `make menuconfig` when you compile Klipper.
 
 We make a cable as below , and it have the power cable in it two, so you can power the RPI with it.
 
@@ -63,4 +63,4 @@ Obtain definition by "ls -l /dev/serial/by-id/" then unplug to verify
 serial: /dev/serial/by-id/usb-Klipper_stm32f446xx_230032000851363131363530-if00
 ```
 
-The main point to have klipper.bin is that you need to select `Communication interface` to `USB` in `make menuconfig` when you compile Klipper for Spider.
+The main point to build klipper.bin is that you need to select `Communication interface` to `USB` in `make menuconfig` when you compile Klipper for Spider.
