@@ -66,13 +66,13 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
    <tr><td>E2-DIR</td><td>PE4</td><td>3</td><td></td></tr>
    <tr><td>E2-EN</td><td>PE3</td><td>2</td><td></td></tr>
    <tr><td>E2-CS/PDN</td><td>PC15</td><td>9</td><td></td></tr>
-   <tr><td rowspan="4">E3-MOTOR(7)</td><td>E3-Step</td><td>PE8</td><td>39</td><td></td></tr>
+   <tr><td rowspan="4">E3-MOTOR(7)</td><td>E3-Step</td><td>PD12</td><td>39</td><td></td></tr>
    <tr><td>E3-DIR</td><td>PC4</td><td>33</td><td></td></tr>
-   <tr><td>E3-EN</td><td>PD12</td><td>59</td><td></td></tr>
+   <tr><td>E3-EN</td><td>PE8</td><td>59</td><td></td></tr>
    <tr><td>E3-CS/PDN</td><td>PA15</td><td>77</td><td></td></tr>
-   <tr><td rowspan="4">E4-MOTOR(8)</td><td>E4-Step</td><td>PC5</td><td>34</td><td></td></tr>
+   <tr><td rowspan="4">E4-MOTOR(8)</td><td>E4-Step</td><td>PE1</td><td>34</td><td></td></tr>
    <tr><td>E4-DIR</td><td>PE0</td><td>97</td><td></td></tr>
-   <tr><td>E4-EN</td><td>PE1</td><td>98</td><td></td></tr>
+   <tr><td>E4-EN</td><td>PC5</td><td>98</td><td></td></tr>
    <tr><td>E4-CS/PDN</td><td>PD11</td><td>58</td><td></td></tr>
    <tr><td rowspan="3">TMC Driver SPI (SPI4)</td><td>MOSI</td><td>PE14</td><td>45</td><td></td></tr>
    <tr><td>MISO</td><td>PE13</td><td>44</td><td></td></tr>
