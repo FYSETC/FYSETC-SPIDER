@@ -28,10 +28,6 @@
 
 #include "../MarlinCore.h"
 
-#if HAS_MULTI_SERIAL
-  #include "queue.h"
-#endif
-
 // Must be declared for allocation and to satisfy the linker
 // Zero values need no initialization.
 
@@ -49,15 +45,15 @@ char *GCodeParser::command_ptr,
      *GCodeParser::string_arg,
      *GCodeParser::value_ptr;
 char GCodeParser::command_letter;
-int GCodeParser::codenum;
+uint16_t GCodeParser::codenum;
 
-#if ENABLED(USE_GCODE_SUBCODES)
+#if USE_GCODE_SUBCODES
   uint8_t GCodeParser::subcode;
 #endif
 
 #if ENABLED(GCODE_MOTION_MODES)
   int16_t GCodeParser::motion_mode_codenum = -1;
-  #if ENABLED(USE_GCODE_SUBCODES)
+  #if USE_GCODE_SUBCODES
     uint8_t GCodeParser::motion_mode_subcode;
   #endif
 #endif
@@ -159,7 +155,7 @@ void GCodeParser::parse(char *p) {
       // Skip spaces to get the numeric part
       while (*p == ' ') p++;
 
-      #if ENABLED(PRUSA_MMU2)
+      #if HAS_PRUSA_MMU2
         if (letter == 'T') {
           // check for special MMU2 T?/Tx/Tc commands
           if (*p == '?' || *p == 'x' || *p == 'c') {
@@ -193,7 +189,7 @@ void GCodeParser::parse(char *p) {
       }
 
       // Allow for decimal point in command
-      #if ENABLED(USE_GCODE_SUBCODES)
+      #if USE_GCODE_SUBCODES
         if (*p == '.') {
           p++;
           while (NUMERIC(*p))
@@ -274,7 +270,7 @@ void GCodeParser::parse(char *p) {
 
     // Special handling for M32 [P] !/path/to/file.g#
     // The path must be the last parameter
-    if (param == '!' && letter == 'M' && codenum == 32) {
+    if (param == '!' && is_command('M', 32)) {
       string_arg = p;                           // Name starts after '!'
       char * const lb = strchr(p, '#');         // Already seen '#' as SD char (to pause buffering)
       if (lb) *lb = '\0';                       // Safe to mark the end of the filename
@@ -311,7 +307,7 @@ void GCodeParser::parse(char *p) {
 
       #if ENABLED(DEBUG_GCODE_PARSER)
         if (debug) {
-          SERIAL_ECHOPAIR("Got param ", param, " at index ", (int)(p - command_ptr - 1));
+          SERIAL_ECHOPAIR("Got param ", param, " at index ", p - command_ptr - 1);
           if (has_val) SERIAL_ECHOPGM(" (has_val)");
         }
       #endif
@@ -395,8 +391,8 @@ void GCodeParser::unknown_command_warning() {
             "\n   sec-ms: ", value_millis_from_seconds(),
             "\n      int: ", value_int(),
             "\n   ushort: ", value_ushort(),
-            "\n     byte: ", (int)value_byte(),
-            "\n     bool: ", (int)value_bool(),
+            "\n     byte: ", value_byte(),
+            "\n     bool: ", value_bool(),
             "\n   linear: ", value_linear_units(),
             "\n  celsius: ", value_celsius()
           );

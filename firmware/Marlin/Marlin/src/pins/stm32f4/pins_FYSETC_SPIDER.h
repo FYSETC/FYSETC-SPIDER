@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2021 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -21,12 +21,6 @@
  */
 #pragma once
 
-#if NOT_TARGET(STM32F4)
-  #error "Oops! Select an STM32F4 board in 'Tools > Board.'"
-#elif HOTENDS > 5 || E_STEPPERS > 5
-  #error "SPIDER supports up to 5 hotends / E-steppers."
-#endif
-
 #ifndef BOARD_INFO_NAME
   #define BOARD_INFO_NAME "FYSETC SPIDER"
 #endif
@@ -34,23 +28,17 @@
   #define DEFAULT_MACHINE_NAME BOARD_INFO_NAME
 #endif
 
-// Change the priority to 3. Priority 2 is for software serial.
-//#define TEMP_TIMER_IRQ_PRIO                  3
-
 //
 // EEPROM Emulation
 //
 #if NO_EEPROM_SELECTED
+  #undef NO_EEPROM_SELECTED
   //#define FLASH_EEPROM_EMULATION
   //#define SRAM_EEPROM_EMULATION
   #define I2C_EEPROM
 #endif
 
-#if ENABLED(FLASH_EEPROM_EMULATION)
-  // Decrease delays and flash wear by spreading writes across the
-  // 128 kB sector allocated for EEPROM emulation.
-  #define FLASH_EEPROM_LEVELING
-#elif ENABLED(I2C_EEPROM)
+#if ENABLED(I2C_EEPROM)
   #define MARLIN_EEPROM_SIZE              0x1000  // 4KB
 #endif
 
@@ -66,16 +54,6 @@
 #define Z2_DIR_PIN                          PE0
 #define Z2_ENABLE_PIN                       PC5
 #define Z2_CS_PIN                           PD11
-
-//
-// EEPROM Emulation
-//
-#if NO_EEPROM_SELECTED
-  #undef NO_EEPROM_SELECTED
-  //#define FLASH_EEPROM_EMULATION
-  //#define SRAM_EEPROM_EMULATION
-  #define I2C_EEPROM
-#endif
 
 //
 // Heaters / Fans
@@ -125,8 +103,8 @@
   #endif
 #endif
 
-#include "pins_FYSETC_S6.h"
-
-#ifndef NEOPIXEL_PIN
-  #define NEOPIXEL_PIN                      PC12
+#if HOTENDS > 3 || E_STEPPERS > 3
+  #error "FYSETC SPIDER supports up to 3 hotends / E-steppers."
+#else
+  #include "pins_FYSETC_S6.h"
 #endif
