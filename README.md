@@ -107,10 +107,10 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
    <tr><td>E1-Heater</td><td>PC8</td><td>65</td><td></td></tr>
    <tr><td>E2-Heater</td><td>PB3</td><td>89</td><td></td></tr>
    <tr><td>Heated-Bed</td><td>PB4</td><td>90</td><td></td></tr>
-   <tr><td rowspan="4">Temperature</td><td>TE0（THERM0）</td><td>PC0</td><td>15</td><td>PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
-   <tr><td>TE1（THERM1）</td><td>PC1</td><td>16</td><td>PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
-   <tr><td>TE2（THERM2）</td><td>PC2</td><td>17</td><td>PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
-   <tr><td>TB（THERM3）</td><td>PC3</td><td>18</td><td>PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
+   <tr><td rowspan="4">Temperature</td><td>TE0（THERM0）</td><td>PC0</td><td>15</td><td>A 4.7kOhm 0.1% temperature sensor pull up resistor is used,PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
+   <tr><td>TE1（THERM1）</td><td>PC1</td><td>16</td><td>A 4.7kOhm 0.1% temperature sensor pull up resistor is used,PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
+   <tr><td>TE2（THERM2）</td><td>PC2</td><td>17</td><td>A 4.7kOhm 0.1% temperature sensor pull up resistor is used,PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
+   <tr><td>TB（THERM3）</td><td>PC3</td><td>18</td><td>A 4.7kOhm 0.1% temperature sensor pull up resistor is used,PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
    <tr><td rowspan="8">EXP2</td><td>LCD_D7</td><td>PD1/CAN-TX1</td><td>82</td><td>Share with CAN-TX1</td></tr>
    <tr><td>LCD_D6</td><td>PD0/CAN-RX1</td><td>81</td><td>Share with CAN-RX1</td></tr>
    <tr><td>LCD_D5</td><td>PC12/MOSI3/TX5/SDA2</td><td>80</td><td></td></tr>
@@ -134,6 +134,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
    <tr><td rowspan="3">SWD Debug</td><td></td><td>PA13/SWDIO</td><td>72</td><td>only used for debugging now and can be used for other purposes.</td></tr>
    <tr><td></td><td>PA14/SWCLK</td><td>76</td><td>only used for debugging now and can be used for other purposes.</td></tr>
 </table>
+
 
 
 # 4. Firmware Guide 
