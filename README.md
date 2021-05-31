@@ -161,7 +161,7 @@ The Marlin firmware is in the `firmware/Marlin` folder in this repository , you 
 
 then change the ```default_envs``` variant in ```platformio.ini``` file
 
-```default_envs = FYSETC_SPIDER```
+```default_envs = FYSETC_S6```
 
 ### 4.1.3 Compile the firmware
 
