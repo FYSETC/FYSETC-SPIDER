@@ -51,11 +51,15 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 | ![](images/mini12864-2.jpg) | ![](images/mini12864-3.jpg) |
 | --------------------------- | --------------------------- |
 
-## 3.2 Pin Out
+## 3.3 Wiring : TMC2209
+
+![](images/TMC2209.JPG)
+
+## 3.4 Pin Out
 
 ![](images/Spider_V1.0_Pinout.svg)
 
-## 3.3 Pin Definition
+## 3.5 Pin Definition
 
 <table>
    <tr><td>Features</td><td>Spider Pin</td><td>STM32 Pin</td><td>Pin No.</td><td>Comment</td></tr>
