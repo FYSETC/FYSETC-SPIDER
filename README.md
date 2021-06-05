@@ -225,13 +225,21 @@ You need to follow the Klipper [installation guide](https://www.klipper3d.org/In
 
 When calling "menuconfig", enable "extra low-level configuration setup" and select the "12MHz crystal" as clock reference. 
 
-Boot address option1
+### Boot address no
 
-At the moment ,i don't find boot address setting in Klipper, so all two firmwares we pre-build [klipper.bin](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) and [klipper-UART0.bin](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) (The differences between two firmware , you can check README [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper)) are at boot address 0x8000000. Please follow [Upload the firmware(DFU)](#jump) to upload the firmware to Spider board. **But you need to set the 'Start address' to 0x08000000 and Choose klipper.bin file but not firmware.bin**.
+If you choose boot address setting `no` in Klipper, then you can follow [Upload the firmware(DFU)](#jump) to upload the firmware to Spider board. **But you need to set the 'Start address' to 0x08000000 **. So the sequence be 
 
-Boot address option2
+1. Click the button to flesh the DFU port.
+2. Connect the DFU 
+3. Choose the "klipper.bin" file.
+4. fill in the 'Start address' with 0x8000000
+5. Start Programming
 
-If Klipper future update support boot address settings for STM32F446 chips, then you can set the boot address to 0x08010000 and build Klipper yourself. Then you need to flash the spider board bootloader first. The bootloader is in the folder named `bootloader` in this repo, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader). Then you can follow [Upload the firmware(SDCARD)](#jump1) to flash your built Klipper firmware to Spider.
+We have two pre-build firmwares for you  [klipper.bin](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) and [klipper-UART0.bin](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) (The differences between two firmware , you can check README [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper)). But it will be outdated as time pass. We will try to catch up with Klipper, but i recommend to build the firmware yourself.
+
+### Boot address 64k
+
+You can also choose `64k` boot address in Klipper. Then you need to flash the spider board bootloader first. The bootloader is in the folder named `bootloader` in this repo, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader). Then you can follow [Upload the firmware(SDCARD)](#jump1) to flash your built Klipper firmware to Spider.
 
 ## 4.3 RRF
 
