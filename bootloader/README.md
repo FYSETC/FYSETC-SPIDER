@@ -2,9 +2,10 @@
 
 ## Bootloader
 
-#### Upload the bootloader(DFU)
+You can follow the following steps to upload the bootloader to Spider.
 
-##### Download stm32cubeprogrammer 
+- ##### Download stm32cubeprogrammer 
+
 
 You can download it from ST website.
 
@@ -14,13 +15,20 @@ Open the STM32CubeProgrammer software.
 
 ![STM32CubeProgrammer](images/STM32CubeProgrammer.png)
 
-##### Enter DFU mode
+- ##### Enter DFU mode
 
-First power off the board , then jumper the BT0 to 3.3V (You can find them in the middle area of the board) , then connect the USB to the board and your computer , it will enter DFU mode . Now you can take the jumper away. 
+
+1. First power off the board
+2. Then close BT0 to 3.3V pin (You can find them in the middle area of the board)  with a jumper
+3. Connect USB cable to the board and your computer 
+4. Power up the board
+
+Now the board is in DFU mode. 
 
 ***REMEMBER to remove the jumper if you finish uploading or it will enter DFU mode again.***
 
-##### Upload the bootloader
+- ##### Upload the bootloader
+
 
 Now you can connect and flash the Spider board with STM32CubeProgrammer with the following operation.
 
@@ -28,7 +36,7 @@ Now you can connect and flash the Spider board with STM32CubeProgrammer with the
 
 Do as the red number shows in the screen shot.
 
-1. Click the button to flesh the DFU port.
+1. Click the button to find the DFU port.
 
 2. Connect the DFU 
 

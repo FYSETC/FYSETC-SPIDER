@@ -199,9 +199,14 @@ Open the STM32CubeProgrammer software.
 
 #### b.Enter DFU mode
 
-First power off the board , then jumper the BT0 to 3.3V (You can find them in the middle area of the board) , then connect the USB to the board and your computer , it will enter DFU mode . Now you can take the jumper away. 
+1. First power off the board
+2. Then close BT0 to 3.3V pin (You can find them in the middle area of the board)  with a jumper
+3. Connect USB cable to the board and your computer 
+4. Power up the board
 
-***REMEMBER to remove the jumper if you finish uploading or it will enter DFU mode again.***
+Now the board is in DFU mode. 
+
+***REMEMBER to remove the jumper if you finish uploading firmware or it will enter DFU mode again.***
 
 #### c.Upload the firmware
 
@@ -211,7 +216,7 @@ Now you can connect and flash the Spider board with stm32cubeprogrammer with the
 
 Do as the red number shows in the screen shot.
 
-1. Click the button to flesh the DFU port.
+1. Click the button to find the DFU port.
 2. Connect the DFU 
 3. Choose the "firmware.bin" file.
 4. fill in the 'Start address' with 0x8010000
@@ -227,7 +232,7 @@ When calling "menuconfig", enable "extra low-level configuration setup" and sele
 
 If you choose boot address setting `no` in Klipper, then you can follow [Upload the firmware(DFU)](#jump) to upload the firmware to Spider board. **But you need to set the 'Start address' to 0x08000000**. So the sequence be 
 
-1. Click the button to flesh the DFU port.
+1. Click the button to find the DFU port.
 2. Connect the DFU 
 3. Choose the "klipper.bin" file.
 4. fill in the 'Start address' with 0x8000000
