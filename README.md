@@ -179,11 +179,9 @@ If you generate the hex file fail you may need to open vscode using Administrato
 
 ### 4.1.5 <span id="jump1">Upload the firmware(SDCARD)</span>
 
-We provide several ways to upload the firmware .Uploading with SD card is our default way to update the firmware as the board already has the sdcard bootloader in it when it leave the factory. There is sdcard slot at the right side of the board. 
+We provide several ways to upload the firmware .Uploading firmware using SD card is our default way to update the firmware as Spider already has the bootloader in it when it leave the factory. But if you once upload the firmware to Spider flash address `0x08000000`, then the bootloader in Spider will be gone, you need to upload the bootloader to Spider yourself. The bootloader is in the folder named `bootloader`, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader).
 
-Then,copy your compiled firmware file ```firmware.bin``` or `klipper.bin`(if you use klipper firmware) file to the SD card , and insert it to the SD card slot, and then power up the board. You may need to wait for about 30s to finish uploading, there is LED beside the sdcard slot blinking when it is uploading. 
-
-Note: The bootloader is in the folder named `bootloader`, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader).
+Then,copy your compiled firmware file ```firmware.bin```(If you use klipper firmware, you need to rename `klipper.bin` to `firmware.bin`) file to the SD card , and insert it to the SD card slot which is at the right side of the board, and then power up the board. You may need to wait for about 30s to finish uploading, there is LED beside the sdcard slot blinking when it is uploading. 
 
 ### 4.1.6 <span id="jump">Upload the firmware(DFU)</span>
 
@@ -227,7 +225,7 @@ When calling "menuconfig", enable "extra low-level configuration setup" and sele
 
 ### Boot address no
 
-If you choose boot address setting `no` in Klipper, then you can follow [Upload the firmware(DFU)](#jump) to upload the firmware to Spider board. **But you need to set the 'Start address' to 0x08000000 **. So the sequence be 
+If you choose boot address setting `no` in Klipper, then you can follow [Upload the firmware(DFU)](#jump) to upload the firmware to Spider board. **But you need to set the 'Start address' to 0x08000000**. So the sequence be 
 
 1. Click the button to flesh the DFU port.
 2. Connect the DFU 
