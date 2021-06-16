@@ -25,7 +25,7 @@ Open the STM32CubeProgrammer software.
 
 Now the board is in DFU mode. 
 
-***REMEMBER to remove the jumper if you finish uploading or it will enter DFU mode again.***
+***REMEMBER to remove the jumper if you finish uploading firmware or it will enter DFU mode again.***
 
 - ##### Upload the bootloader
 

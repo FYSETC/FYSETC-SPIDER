@@ -32,7 +32,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ## 3.1 Wiring
 
-![](images/Spider_wiring.svg)
+![](images/Spider_wiring.jpg)
 
 ## 3.2 Wiring : FYSETC mini 12864 v2.1 
 
@@ -57,7 +57,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ## 3.4 Pin Out
 
-![](images/Spider_V1.0_Pinout.svg)
+![](images/Spider_V1.0_Pinout.jpg)
 
 ## 3.5 Pin Definition
 
