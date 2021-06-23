@@ -1,0 +1,65 @@
+From c704df20913ca65a69ca606eed43983db21818c9 Mon Sep 17 00:00:00 2001
+From: George Fu <nailao_5918@163.com>
+Date: Wed, 23 Jun 2021 09:08:49 +0800
+Subject: [PATCH 07/15] Change makefile for STM32F446
+
+---
+ CoreN2G/src/STM32F4/makefiles/Core.mk  | 2 +-
+ CoreN2G/src/STM32F4/makefiles/makefile | 8 ++++----
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/CoreN2G/src/STM32F4/makefiles/Core.mk b/CoreN2G/src/STM32F4/makefiles/Core.mk
+index db4eb13..b9a6902 100644
+--- a/CoreN2G/src/STM32F4/makefiles/Core.mk
++++ b/CoreN2G/src/STM32F4/makefiles/Core.mk
+@@ -7,7 +7,7 @@ CORE_SRC_DIRS += src/STM32F4/system src/STM32F4/system/STM32F4xx src/STM32F4/sys
+ CORE_SRC_DIRS += src/STM32F4/system/Drivers/CMSIS/Device/ST/STM32F4xx/Include src/STM32F4/system/Drivers/CMSIS/Device/ST/STM32F4xx/Source
+ CORE_SRC_DIRS += src/STM32F4/system/Drivers/STM32F4xx_HAL_Driver/Inc src/STM32F4/system/Drivers/STM32F4xx_HAL_Driver/Src
+ CORE_SRC_DIRS += src/STM32F4/system/CMSIS/CMSIS/Core/Include src/STM32F4/system/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc
+-CORE_SRC_DIRS += src/STM32F4/variants/STM32F407 src/STM32F4/ConfigurableUART src/STM32F4/SharedSPI src/STM32F4/PWM src/STM32F4/SDIO src/STM32F4/CRC32
++CORE_SRC_DIRS += src/STM32F4/variants/STM32F446 src/STM32F4/ConfigurableUART src/STM32F4/SharedSPI src/STM32F4/PWM src/STM32F4/SDIO src/STM32F4/CRC32
+ 
+ CORE_SRC = $(CORE_DIR) $(addprefix $(CORE_DIR)/, $(CORE_SRC_DIRS))
+ CORE_INCLUDES = $(addprefix -I, $(CORE_SRC))
+diff --git a/CoreN2G/src/STM32F4/makefiles/makefile b/CoreN2G/src/STM32F4/makefiles/makefile
+index 60bd7c3..0cdb730 100644
+--- a/CoreN2G/src/STM32F4/makefiles/makefile
++++ b/CoreN2G/src/STM32F4/makefiles/makefile
+@@ -51,7 +51,7 @@ endif
+ 	
+ 
+ #Linker script to avoid built in Bootloader
+-LINKER_SCRIPT_BASE = $(CORE_DIR)/src/STM32F4/variants/STM32F407/ldscript
++LINKER_SCRIPT_BASE = $(CORE_DIR)/src/STM32F4/variants/STM32F446/ldscript
+ 
+ 
+ 
+@@ -62,14 +62,14 @@ $(info  - Linker Script used: $(LINKER_SCRIPT))
+ 
+ #Flags common for Core in c and c++
+ #FLAGS  = -D__$(PROCESSOR)__ -D_XOPEN_SOURCE -DENABLE_UART3 -DSTM32F4 -DSTM32F407xx -DSTM32F40_41xxx -DSTM32F407_5ZX -DSTM32F4xx
+-FLAGS  = -D__$(PROCESSOR)__ -D_XOPEN_SOURCE -DSTM32F4 -DSTM32F407xx -DSTM32F40_41xxx -DSTM32F407_5ZX -DSTM32F4xx
++FLAGS  = -D__$(PROCESSOR)__ -D_XOPEN_SOURCE -DSTM32F4 -DSTM32F446xx -DSTM32F4xx
+ # UART configuration
+ FLAGS  += -DHAVE_HWSERIAL1 -DHAVE_HWSERIAL2 -DHAVE_HWSERIAL3 -DHAVE_HWSERIAL4 -DHAVE_HWSERIAL5 -DHAVE_HWSERIAL6
+ 
+ #lpcopen Defines
+ FLAGS += -DCORE_M4
+ #RTOS + enable mods to RTOS+TCP for RRF
+-FLAGS += -DRTOS -DFREERTOS_USED -DUSBCON -DUSBD_USE_CDC -DUSBD_VID=0x0483 -DTIM_IRQ_PRIO=13 -DUSB_PRODUCT=\"STM32F407ZG\" -DVECT_TAB_OFFSET=0x8000
++FLAGS += -DRTOS -DFREERTOS_USED -DUSBCON -DUSBD_USE_CDC -DUSBD_VID=0x0483 -DTIM_IRQ_PRIO=13 -DUSB_PRODUCT=\"STM32F446VE\" -DVECT_TAB_OFFSET=0x8000
+ FLAGS += -DDEVICE_USBDEVICE=1 -DTARGET_STM32F4 -DARDUINO_ARCH_STM32 -DHAL_UART_MODULE_ENABLED -DHAL_PCD_MODULE_ENABLED
+ FLAGS +=  -Wall -c -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mcpu=cortex-m4 -mthumb -ffunction-sections -fdata-sections
+ FLAGS += -nostdlib -Wdouble-promotion -fsingle-precision-constant -fstack-usage
+@@ -140,7 +140,7 @@ $(BUILD_DIR)/libRRFLibraries.a: $(RRFLIBRARIES_OBJS)
+ $(BUILD_DIR)/$(OUTPUT_NAME).elf: $(BUILD_DIR)/libSTMCore.a $(BUILD_DIR)/libRRFLibraries.a $(RRFLIBC_OBJS) $(RRF_OBJS)
+ 	@echo "\nCreating $(OUTPUT_NAME).bin"
+ 	$(V)$(MKDIR) $(dir $@)
+-	$(V)$(LD) -L$(BUILD_DIR)/ -L$(CORE_DIR)/src/STM32F4/variants/STM32F407/ -L$(CORE_DIR)/src/STM32F4/system/CMSIS/CMSIS/DSP/Lib/GCC --specs=nosys.specs -Xlinker -z -Xlinker muldefs -Os -Wl,--fatal-warnings -fmerge-all-constants -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mcpu=cortex-m4 -mthumb -T$(LINKER_SCRIPT) -Wl,-Map,$(BUILD_DIR)/$(OUTPUT_NAME).map -o $(BUILD_DIR)/$(OUTPUT_NAME).elf -Wl,--cref -Wl,--check-sections -Wl,--gc-sections,--relax -Wl,--entry=Reset_Handler -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-unresolved-symbols -Wl,--defsym=LD_MAX_SIZE=1048576 -Wl,--defsym=LD_MAX_DATA_SIZE=196608 -Wl,--defsym=LD_FLASH_OFFSET=0x0 -Wl,--start-group $(RRFLIBC_OBJS) -lSTMCore $(RRF_OBJS) -lRRFLibraries -larm_cortexM4l_math -lc -lm -lgcc -lstdc++ -Wl,--end-group
++	$(V)$(LD) -L$(BUILD_DIR)/ -L$(CORE_DIR)/src/STM32F4/variants/STM32F446/ -L$(CORE_DIR)/src/STM32F4/system/CMSIS/CMSIS/DSP/Lib/GCC --specs=nosys.specs -Xlinker -z -Xlinker muldefs -Os -Wl,--fatal-warnings -fmerge-all-constants -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mcpu=cortex-m4 -mthumb -T$(LINKER_SCRIPT) -Wl,-Map,$(BUILD_DIR)/$(OUTPUT_NAME).map -o $(BUILD_DIR)/$(OUTPUT_NAME).elf -Wl,--cref -Wl,--check-sections -Wl,--gc-sections,--relax -Wl,--entry=Reset_Handler -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-unresolved-symbols -Wl,--defsym=LD_MAX_SIZE=1048576 -Wl,--defsym=LD_MAX_DATA_SIZE=196608 -Wl,--defsym=LD_FLASH_OFFSET=0x0 -Wl,--start-group $(RRFLIBC_OBJS) -lSTMCore $(RRF_OBJS) -lRRFLibraries -larm_cortexM4l_math -lc -lm -lgcc -lstdc++ -Wl,--end-group
+ 	$(V)$(OBJCOPY) --strip-unneeded -O binary $(BUILD_DIR)/$(OUTPUT_NAME).elf $(BUILD_DIR)/$(OUTPUT_NAME).bin
+ 	$(V)$(SIZE) $(BUILD_DIR)/$(OUTPUT_NAME).elf
+ 	-@$(MAKE_DIR)/staticMemStats.sh $(BUILD_DIR)/$(OUTPUT_NAME)
+-- 
+2.31.1.windows.1
+

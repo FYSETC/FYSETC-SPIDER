@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"search.exclude": {
+			"**/*.code-search": false,
+			"**/bower_components": false,
+			"**/node_modules": false,
+			"**/STM32F0*/": true,
+			"**/STM32F1*/": true,
+			"**/STM32F2*/": true,
+			"**/STM32F3*/": true,
+			"**/STM32F7*/": true,
+			"**/STM32G0*/": true,
+			"**/STM32G4*/": true,
+			"**/STM32H7*/": true,
+			"**/STM32L0*/": true,
+			"**/STM32L1*/": true,
+			"**/STM32L4*/": true,
+			"**/STM32WB*/": true,
+			"releases/": true
+			}
+	}
+}

@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "origin"]
+	url = git@github.com:gloomyandy/CoreN2G.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "v3.3-dev"]
+	remote = origin
+	merge = refs/heads/v3.3-dev

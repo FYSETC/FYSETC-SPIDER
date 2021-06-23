@@ -1,0 +1,25 @@
+From f487869485a419f22b301b919130e9b4a485579c Mon Sep 17 00:00:00 2001
+From: George Fu <nailao_5918@163.com>
+Date: Wed, 23 Jun 2021 09:49:45 +0800
+Subject: [PATCH 10/15] Diable SUPPORT_12864_LCD
+
+---
+ RepRapFirmware/src/targets/STM32/Pins_STM32.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/RepRapFirmware/src/targets/STM32/Pins_STM32.h b/RepRapFirmware/src/targets/STM32/Pins_STM32.h
+index cb181cb..aedde38 100644
+--- a/RepRapFirmware/src/targets/STM32/Pins_STM32.h
++++ b/RepRapFirmware/src/targets/STM32/Pins_STM32.h
+@@ -75,7 +75,7 @@
+ 
+ #elif defined(ESP8266WIFI)
+     #define HAS_RTOSPLUSTCP_NETWORKING   0
+-    #define SUPPORT_12864_LCD            1
++    #define SUPPORT_12864_LCD            0
+     #define HAS_WIFI_NETWORKING          1
+     #define HAS_MASS_STORAGE             1
+     #define SUPPORT_TELNET               0
+-- 
+2.31.1.windows.1
+

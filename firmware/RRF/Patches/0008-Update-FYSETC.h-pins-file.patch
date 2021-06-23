@@ -1,0 +1,40 @@
+From e164053b9501f273482d4b3170e81ed8fd17b487 Mon Sep 17 00:00:00 2001
+From: George Fu <nailao_5918@163.com>
+Date: Wed, 23 Jun 2021 09:31:37 +0800
+Subject: [PATCH 08/15] Update FYSETC.h pins file
+
+---
+ RepRapFirmware/src/targets/STM32/Boards/FYSETC.h | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/RepRapFirmware/src/targets/STM32/Boards/FYSETC.h b/RepRapFirmware/src/targets/STM32/Boards/FYSETC.h
+index d1327f8..aa9dedd 100644
+--- a/RepRapFirmware/src/targets/STM32/Boards/FYSETC.h
++++ b/RepRapFirmware/src/targets/STM32/Boards/FYSETC.h
+@@ -87,7 +87,7 @@ constexpr PinEntry PinTable_FYSETC_SPIDER[] =
+ };
+ 
+ constexpr BoardDefaults fysetc_spider_Defaults = {
+-    {0x8479e19e},                               // Signature
++    {0x8479e19e, 0x5f0d840c},                   // Signature
+     SD_SPI1_B,                                  // SD Card access
+     {   //CLK, MISO, MOSI
+         {PA_5, PA_6, PA_7},                     //SPI0
+@@ -98,11 +98,11 @@ constexpr BoardDefaults fysetc_spider_Defaults = {
+         {NoPin, NoPin, NoPin},                  //SPI5
+     },
+ 	8,											// Number of drivers
+-    {PE_9,  PD_9,  PD_15, PD_4, PE_5,  PE_3,  PD_12, PE_1},   	//enablePins
+-    {PE_11, PD_8,  PD_14, PD_5, PE_6,  PE_2,  PE_8,  PC_5},	//stepPins
++    {PE_9,  PD_9,  PD_15, PD_4, PE_5,  PE_3,  PE_8,  PC_5},   	//enablePins
++    {PE_11, PD_8,  PD_14, PD_5, PE_6,  PE_2,  PD_12, PE_1},	    //stepPins
+     {PE_10, PB_12, PD_13, PD_6, PC_13, PE_4,  PC_4,  PE_0},    	//dirPins
+ #if HAS_SMART_DRIVERS
+-    {PE_7,  PE_15, PD_10, PD_7, PC_14, PC_15, PA_15, PD_11},      //uartPins
++    {PE_7,  PE_15, PD_10, PD_7, PC_14, PC_15, PA_15, PD_11},    //uartPins
+     8,                                      	// Smart drivers
+ #endif
+     0,                                       	//digiPot Factor
+-- 
+2.31.1.windows.1
+

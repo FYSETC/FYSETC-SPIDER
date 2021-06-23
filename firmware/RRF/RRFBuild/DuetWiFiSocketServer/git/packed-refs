@@ -1,0 +1,16 @@
+# pack-refs with: peeled fully-peeled sorted 
+405831667614ac33bdcdbea0063ed40d2892a28b refs/remotes/origin/chrishamm
+4466e5e41e99b672b7a8cd17ee5f78cabe0b0d64 refs/remotes/origin/dev
+94d9a3df2c662d32fa3026f384482e650f018326 refs/remotes/origin/master
+7731b42b7d6a8ce876a190c007620f30dc6294d8 refs/remotes/origin/newsdk-lpc
+8647430096540b4c49365334409c340453196537 refs/tags/1.23L263-301
+2ee7431a6661b1dcae4563c10426cbce979b1837 refs/tags/1.24
+7b290e368ede9195bfa981c9f4265255c8d40ff6 refs/tags/1.24beta2
+e4ed66666d06563f79dbc48b40c6d858767e54ae refs/tags/1.25
+4fb44a409a0cc518c5ad5700e5adcf4d0333cc16 refs/tags/V1.23-01
+28ea4f9f85eebb9caebdffa022b4d6a315787d7f refs/tags/V1.23L263-302
+0daaffac61b1794497d088743921bcb53cf5be3d refs/tags/V1.24-01
+a13f5aeefcb293e3e4e4ef54864ac3f8b9799e80 refs/tags/V1.24-03
+7731b42b7d6a8ce876a190c007620f30dc6294d8 refs/tags/V1.25-01
+08d1ddf2e2f135be4bff319ac126579bea77f7af refs/tags/V1.25B0-01
+3126f68440e56fcdf4c9e21a7349ee99e41f1d9a refs/tags/v1.23-02

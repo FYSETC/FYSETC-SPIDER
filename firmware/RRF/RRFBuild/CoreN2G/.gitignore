@@ -1,0 +1,57 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Misc
+/.settings/
+/Documentation/html
+/Documentation/latex
+
+# Executables
+*.exe
+*.out
+*.app
+/SAMC21_CAN/
+/SAMC21_CAN_Debug/
+/SAMC21_CAN_RTOS/
+/SAMC21_CAN_RTOS_Debug/
+/SAME5x_CAN/
+/SAME5x_CAN_RTOS/
+/SAME5x_CAN_RTOS_Debug/
+/SAME5x_SDHC/
+/SAME5x_SDHC_USB_RTOS/
+/SAME5x_CAN_Debug/
+/SAME5x_SDHC_USB_RTOS_Debug/
+/SAME5x_CAN_SDHC_USB_RTOS/
+/SAME70_CAN_SDHC_USB_RTOS/
+/SAME70_CAN_SDHC_USB_RTOS_Debug/
+/SAME5x_CAN_SDHC_USB_RTOS_Debug/
+/SAM4E_SDHC/
+/SAM4S_SDHC/
+/SAME70_SDHC/
+/SAM4E_SDHC_USB_RTOS/
+/SAM4S_SDHC_USB_RTOS/

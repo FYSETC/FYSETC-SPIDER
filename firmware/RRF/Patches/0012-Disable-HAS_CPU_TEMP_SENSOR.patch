@@ -1,0 +1,43 @@
+From 33912005b4196e9e81c9329f4daee852f98183b3 Mon Sep 17 00:00:00 2001
+From: George Fu <nailao_5918@163.com>
+Date: Wed, 23 Jun 2021 10:58:27 +0800
+Subject: [PATCH 12/15] Disable HAS_CPU_TEMP_SENSOR
+
+---
+ RepRapFirmware/src/Platform/Platform.cpp      | 2 ++
+ RepRapFirmware/src/targets/STM32/Pins_STM32.h | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/RepRapFirmware/src/Platform/Platform.cpp b/RepRapFirmware/src/Platform/Platform.cpp
+index b16009f..abeb169 100644
+--- a/RepRapFirmware/src/Platform/Platform.cpp
++++ b/RepRapFirmware/src/Platform/Platform.cpp
+@@ -1160,10 +1160,12 @@ void Platform::Spin() noexcept
+ 	// See: http://www.efton.sk/STM32/STM32_VREF.pdf and https://www.st.com/resource/en/datasheet/dm00037051.pdf
+ 	// We get current VRef to compensate reading.
+ 	// VRef = (3.3*VREFIN_CAL)/VREFINT
++	#if HAS_VREF_MONITOR
+ 	if (adcFilters[VrefFilterIndex].IsValid())
+ 	{
+ 		vRefCorrection = (GET_ADC_CAL(VREFINT_CAL_ADDR, VREFINT_CAL_DEF)*VRefCorrectionScale)/((adcFilters[VrefFilterIndex].GetSum() >> (AdcBits - 12))/ThermistorAverageReadings);
+ 	}
++	#endif
+ #endif
+ 
+ 	// Check the MCU max and min temperatures
+diff --git a/RepRapFirmware/src/targets/STM32/Pins_STM32.h b/RepRapFirmware/src/targets/STM32/Pins_STM32.h
+index aedde38..1f2e68b 100644
+--- a/RepRapFirmware/src/targets/STM32/Pins_STM32.h
++++ b/RepRapFirmware/src/targets/STM32/Pins_STM32.h
+@@ -38,7 +38,7 @@
+ 
+ // Features definition
+ #define SUPPORT_OBJECT_MODEL             1
+-#define HAS_CPU_TEMP_SENSOR		         1	// enabling the CPU temperature sensor disables Due pin 13 due to bug in SAM3X
++#define HAS_CPU_TEMP_SENSOR		         0	// enabling the CPU temperature sensor disables Due pin 13 due to bug in SAM3X
+ #define HAS_HIGH_SPEED_SD		         0
+ #define HAS_VOLTAGE_MONITOR		         1
+ #define ACTIVE_LOW_HEAT_ON		         0
+-- 
+2.31.1.windows.1
+

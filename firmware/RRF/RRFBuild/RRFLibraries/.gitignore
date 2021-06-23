@@ -1,0 +1,51 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Misc
+.settings/language.settings.xml
+SAM3X/
+SAM3X_RTOS/
+SAM4E_RTOS/
+SAM4S_RTOS/
+SAMC21/
+SAMC21_RTOS/
+SAMC21_RTOS_Debug/
+SAME51/
+SAME51_RTOS/
+SAME51_RTOS_Debug/
+SAME70_RTOS/
+SAME70_RTOS_Debug/
+/SAM4E/
+/SAM4S/
+/SAME70/
+/SAM3S_4S/

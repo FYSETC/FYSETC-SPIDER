@@ -1,0 +1,104 @@
+From 074dd9ef6030ee1fbb79e69f5d7cdc6c211c9e84 Mon Sep 17 00:00:00 2001
+From: George Fu <nailao_5918@163.com>
+Date: Wed, 23 Jun 2021 09:06:30 +0800
+Subject: [PATCH 06/15] Disable CCMRAM
+
+---
+ CoreN2G/src/Core.h                               | 2 +-
+ CoreN2G/src/STM32F4/ccmram.cpp                   | 5 +++++
+ CoreN2G/src/STM32F4/ccmram.h                     | 6 ++++++
+ CoreN2G/src/syscalls.h                           | 4 ++--
+ RepRapFirmware/src/targets/STM32/BoardConfig.cpp | 4 ++--
+ 5 files changed, 16 insertions(+), 5 deletions(-)
+
+diff --git a/CoreN2G/src/Core.h b/CoreN2G/src/Core.h
+index 17a3678..c611e3d 100644
+--- a/CoreN2G/src/Core.h
++++ b/CoreN2G/src/Core.h
+@@ -466,7 +466,7 @@ static inline bool inInterrupt() noexcept
+ 	return (__get_IPSR() & 0x01FF) != 0;
+ }
+ 
+-#if STM32F4
++#if 0//defined(STM32F4) && !defined(STM32F446xx)
+ #define TASKMEM __attribute__((section(".ccmram")))
+ #else
+ #define TASKMEM
+diff --git a/CoreN2G/src/STM32F4/ccmram.cpp b/CoreN2G/src/STM32F4/ccmram.cpp
+index bf39f67..b2115da 100644
+--- a/CoreN2G/src/STM32F4/ccmram.cpp
++++ b/CoreN2G/src/STM32F4/ccmram.cpp
+@@ -1,3 +1,6 @@
++#ifndef STM32F446xx
++
++
+ #include "CoreImp.h"
+ 
+ extern char _sccmram;					// defined in linker script
+@@ -22,3 +25,5 @@ void *CoreAllocCCMRAMPermanent(size_t sz, std::align_val_t align) noexcept
+ 	ccmHeapLimit = newHeapLimit;
+ 	return newHeapLimit;
+ }
++
++#endif
+diff --git a/CoreN2G/src/STM32F4/ccmram.h b/CoreN2G/src/STM32F4/ccmram.h
+index d180c3a..74e8fcc 100644
+--- a/CoreN2G/src/STM32F4/ccmram.h
++++ b/CoreN2G/src/STM32F4/ccmram.h
+@@ -1,5 +1,8 @@
+ #ifndef CCMRAM_H
+ #define CCMRAM_H
++
++#ifndef STM32F446xx
++
+ #ifdef __cplusplus
+ extern const char *ccmHeapLimit;
+ extern char *ccmHeapTop;
+@@ -7,4 +10,7 @@ extern char _eccmram;
+ 
+ void *CoreAllocCCMRAMPermanent(size_t sz, std::align_val_t align) noexcept;
+ #endif
++
++#endif
++
+ #endif
+diff --git a/CoreN2G/src/syscalls.h b/CoreN2G/src/syscalls.h
+index f8f01f8..f1f554c 100644
+--- a/CoreN2G/src/syscalls.h
++++ b/CoreN2G/src/syscalls.h
+@@ -14,7 +14,7 @@
+ 
+ #if LPC17xx
+ #include <portable.h>
+-#elif STM32F4
++#elif 0//defined(STM32F4) && !defined(STM32F446xx)
+ #include "ccmram.h"
+ #endif
+ 
+@@ -68,7 +68,7 @@ void *CoreAllocPermanent(size_t sz, std::align_val_t align) noexcept
+ 		OutOfMemoryHandler();
+ 	}
+ 	return ret;
+-#elif STM32F4
++#elif 0//(defined(STM32F4) && !defined(STM32F446xx))
+ 	return CoreAllocCCMRAMPermanent(sz, align);
+ #else
+ 	char * const newHeapLimit = reinterpret_cast<char *>(reinterpret_cast<uint32_t>(heapLimit - sz) & ~((uint32_t)align - 1));
+diff --git a/RepRapFirmware/src/targets/STM32/BoardConfig.cpp b/RepRapFirmware/src/targets/STM32/BoardConfig.cpp
+index 6ae94ad..38ebf49 100644
+--- a/RepRapFirmware/src/targets/STM32/BoardConfig.cpp
++++ b/RepRapFirmware/src/targets/STM32/BoardConfig.cpp
+@@ -440,8 +440,8 @@ static SSPChannel InitSDCard(uint32_t boardSig, FATFS *fs)
+     return SSPNONE;
+ }
+ 
+-extern char _sccmram;						// defined in linker script
+-extern char _eccmram;					// defined in linker script
++//extern char _sccmram;						// defined in linker script
++//extern char _eccmram;					// defined in linker script
+ 
+ void BoardConfig::Init() noexcept
+ {
+-- 
+2.31.1.windows.1
+
