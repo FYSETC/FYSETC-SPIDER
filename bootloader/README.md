@@ -37,12 +37,10 @@ Now you can connect and flash the Spider board with STM32CubeProgrammer with the
 Do as the red number shows in the screen shot.
 
 1. Click the button to find the DFU port.
-
 2. Connect the DFU 
-
 3. Choose the downloaded "Bootloader-FYSETC_SPIDER.hex" file.
-
-6. Start Programming
+4. Make sure "Start address" is 0x8000000.
+5. Start Programming
 
 **We will continue to update, please look forward to it!***
 
