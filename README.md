@@ -163,6 +163,8 @@ then change the ```default_envs``` variant in ```platformio.ini``` file
 
 ```default_envs = FYSETC_S6```
 
+**Note: If you download the latest firmware [Marlin bugfix-2.0.x branch](https://github.com/MarlinFirmware/Marlin/tree/bugfix-2.0.x), you may need to change the boot address yourself ,check the PR [here](https://github.com/MarlinFirmware/Marlin/pull/22207).**
+
 ### 4.1.3 Compile the firmware
 
 Open Vscode and open platformio main page and click the "Open Project" button , and direct to the folder where you put your firmware.
