@@ -24,12 +24,12 @@ M569 P5 S1                                              ; physical drive 5 goes 
 M569 P6 S1                                              ; physical drive 6 goes forwards using default driver timings
 M569 P7 S1                                              ; physical drive 7 goes forwards using default driver timings
 M584 X0 Y1 Z4:5:6:7 E3                                  ; set drive mapping
-M669 K5 X1:1:0:0 Y1:1:0:-1 Z0:0:1:0;
+;M669 K5 X1:1:0:0 Y1:1:0:-1 Z0:0:1:0;
 M350 X16 Y16 Z16 E16 I1                                 ; configure microstepping with interpolation
 M92 X160.00 Y160.00 Z200.00:200.00:200.00:200.00 E420.00         ; set steps per mm
-M566 X900.00 Y900.00 Z60.00:60.00:60.00:60.00 E120.00      ; set maximum instantaneous speed changes (mm/min)
-M203 X6000.00 Y6000.00 Z180.00:180.00:180.00:180.00 E1200.00; set maximum speeds (mm/min)
-M201 X500.00 Y500.00 Z20.00:20.00:20.00:20.00 E250.00      ; set accelerations (mm/s^2)
+;M566 X900.00 Y900.00 Z60.00:60.00:60.00:60.00 E120.00      ; set maximum instantaneous speed changes (mm/min)
+;M203 X6000.00 Y6000.00 Z180.00:180.00:180.00:180.00 E1200.00; set maximum speeds (mm/min)
+;M201 X500.00 Y500.00 Z20.00:20.00:20.00:20.00 E250.00      ; set accelerations (mm/s^2)
 M906 X800 Y800 Z800:800:800:800 E800 I30                   ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                                 ; Set idle timeout
 
@@ -38,7 +38,7 @@ M208 X0 Y0 Z0 S1                                     ; set axis minima
 M208 X200 Y200 Z180 S0                             ; set axis maxima
 
 ; Endstops
-M574 X2 S1 P"xstop"                                     ; configure active-high endstop for low end on X via pin xstop
+M574 X1 S1 P"xstop"                                     ; configure active-high endstop for low end on X via pin xstop
 M574 Y1 S1 P"ystop"                                     ; configure active-high endstop for low end on Y via pin ystop
 M574 Z1 S1 P"zstop"                                     ; configure active-high endstop for low end on Z via pin zstop
 
