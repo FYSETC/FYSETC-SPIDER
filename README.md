@@ -159,11 +159,11 @@ The Marlin firmware is in the `firmware/Marlin` folder in this repository , you 
 
 ```#define MOTHERBOARD BOARD_FYSETC_SPIDER```
 
-then change the ```default_envs``` variant in ```platformio.ini``` file
+```default_envs = FYSETC_S6``` (For old bootloader,boot address is `0x10000`, see below)
 
-```default_envs = FYSETC_S6```
+```default_envs = FYSETC_S6_8000``` (For new bootloader,boot address is `0x8000`, see below)
 
-**Note: If you download the latest firmware [Marlin bugfix-2.0.x branch](https://github.com/MarlinFirmware/Marlin/tree/bugfix-2.0.x), you may need to change the boot address yourself ,check the PR [here](https://github.com/MarlinFirmware/Marlin/pull/22207).**
+**Note: The bootloader boot address have been change to `0x8000` since 2021/06/23, you can check bootloader details [here](https://github.com/FYSETC/FYSETC-S6/tree/main/bootloader), and you can check the Marlin PR [here](https://github.com/MarlinFirmware/Marlin/pull/22207).**
 
 ### 4.1.3 Compile the firmware
 
@@ -221,7 +221,7 @@ Do as the red number shows in the screen shot.
 1. Click the button to find the DFU port.
 2. Connect the DFU 
 3. Choose the "firmware.bin" file.
-4. fill in the 'Start address' with 0x8008000
+4. Fill in the 'Start address' with 0x8008000 (If your platformio env is `default_envs = FYSETC_S6`, then you need to set it to `0x8010000`, in klipper if you choose boot address `32k` then set it `0x8008000`, if 64k , set it `0x8010000`, yes , you need different bootloader [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader))
 5. Start Programming
 
 ## 4.2 Klipper
@@ -244,7 +244,11 @@ We have two pre-build firmwares for you  [klipper.bin](https://github.com/FYSETC
 
 ### Boot address 32k
 
-You can also choose `32k` boot address in Klipper. Then you need to flash the spider board bootloader first. The bootloader is in the folder named `bootloader` in this repo, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader). Then you can follow [Upload the firmware(SDCARD)](#jump1) to flash your built Klipper firmware to Spider.
+You can also choose `32k` boot address in Klipper. Then you need to flash the spider board bootloader named `Bootloader_FYSETC_SPIDER` first. The bootloader is in the folder named `bootloader` in this repo, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader). Then you can follow [Upload the firmware(SDCARD)](#jump1) to flash your built Klipper firmware to Spider.
+
+### Boot address 64k
+
+You can also choose `64k` boot address in Klipper. Then you need to flash the spider board bootloader named `Bootloader_FYSETC_SPIDER_10000` first. The bootloader is in the folder named `bootloader` in this repo, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader). Then you can follow [Upload the firmware(SDCARD)](#jump1) to flash your built Klipper firmware to Spider.
 
 ## 4.3 RRF
 
