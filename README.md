@@ -218,21 +218,21 @@ If you choose `No bootloader` bootloader offset in Klipper `make menuconfig`, th
 
 We have two pre-build firmwares for you  [klipper.bin](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) and [klipper-UART0.bin](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) (The differences between two firmware , you can check README [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper)). But it will be outdated as time pass. We will try to catch up with Klipper, but i recommend to build the firmware yourself.
 
-![image-20210705151440643](images\menuconfig1.png)
+![image-20210705151440643](images/menuconfig1.png)
 
 - ##### 2. Boot address 32k
 
 
 If you choose `32k` bootloader offset in Klipper `make menuconfig`. Then you need to flash the spider board bootloader named `Bootloader_FYSETC_SPIDER` first, we recommend you to use this bootloader as we already change default bootloader offset from `64k` to `32k` since `2021/06/23`. The bootloader is in the folder named `bootloader` in this repo, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader). Then you can follow [Upload the firmware(SDCARD)](#jump1) to flash your built Klipper firmware to Spider.
 
-![image-20210705151337765](images\menuconfig2.png)
+![image-20210705151337765](images/menuconfig2.png)
 
 - ##### 3. Boot address 64k
 
 
 If you choose `64k` bootloader offset in Klipper `make menuconfig`. Then you need to flash the spider board bootloader named `Bootloader_FYSETC_SPIDER_10000` first. The bootloader is in the folder named `bootloader` in this repo, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader). Then you can follow [Upload the firmware(SDCARD)](#jump1) to flash your built Klipper firmware to Spider.
 
-![image-20210705151951142](images\menuconfig3.png)
+![image-20210705151951142](images/menuconfig3.png)
 
 - #### Communication interface
 
@@ -240,7 +240,7 @@ If you choose `64k` bootloader offset in Klipper `make menuconfig`. Then you nee
 
 If you want to connect Spider to RaspberryPI with USB cable. You need to select `USB (on PA11/PA12)`
 
-![image-20210705154413053](images\ci1.png)
+![image-20210705154413053](images/ci1.png)
 
 And in `printer.cfg` you need to set the serial as below. We provide an example cfg file `printer.cfg` for VORON 2 machine [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper).
 
@@ -254,7 +254,7 @@ serial: /dev/serial/by-id/usb-Klipper_stm32f446xx_230032000851363131363530-if00
 
 If you want to connect Spider UART1(RX1:PA10, TX1:PA9) port to RPI  uart0(TX:GPIO14,RX:GPIO15) port, you need to select `Serial (on USART1 PA10/PA9)`
 
-![image-20210705154625673](images\ci2.png)
+![image-20210705154625673](images/ci2.png)
 
 In `printer.cfg` you need to uncomment the following line as our example `printer.cfg` file [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) do, if your cfg file don't have this line, please add it.
 
