@@ -1,66 +1,33 @@
 # Klipper
 
-There are two firmwares for Spider board.
+## printer.cfg
 
-### 1 : Spider UART1 to RPI uart
+This in folder, there a `printer.cfg` file, this is an example Klipper configuration file for VORON2.4 machine. It is not copy-paste available config, you need to adjust the items in file, please read the file carefully, especially the first lines in the file.
 
-If you connect Spider UART1(RX1:PA10, TX1:PA9) port to RPI  uart0(TX:GPIO14,RX:GPIO15) port, then klipper-UART0.bin is the firmware you need to flash into Spider board. And in printer.cfg which is the example cfg for VORON 2 machine in this repo you need to change the serial to
+## Pre-builds
 
-```
-serial: /dev/ttyAMA0
-```
+For some beginners of Spider, i pre-build some firmwares for you, but i strongly recommend you to build the firmware yourself as Klipper update from time to time.  
 
-And  you need to switch hardware uart to GPIO14/GPIO15. You need to edit the following line in /boot/config.txt file
+`klipper-USB.bin` : No bootloader offset, choose USB to communicate with raspberrypi.
 
-```
-sudo nano /boot/cmdline.txt
-```
+![image-20210705171431398](klipper-USB.png)
 
-remove the word phase "console=serial0,115200" or "console=ttyAMA0,115200", then
+`klipper-UART.bin` : No bootloader offset, choose UART to communicate with raspberrypi.
 
-```
-sudo reboot
-```
+![image-20210705171345175](klipper-UART.png)
 
-Then enter RPI system again.
+`klipper-32k-USB.bin` : `0x8000(32k)` bootloader offset, choose USB to communicate with raspberrypi.
 
-```
-sudo raspi-config
-```
+![image-20210705171253316](klipper-32k-USB.png)
 
-=> Interfacing Option
+`klipper-32k-UART.bin` : `0x8000(32k)` bootloader offset, choose UART to communicate with raspberrypi.
 
-=> Serial
+![image-20210705171253316](klipper-32k-UART.png)
 
-=> NO
+`klipper-64k-USB.bin` : `0x10000(64k)` bootloader offset, choose USB to communicate with raspberrypi.
 
-=> YES
+![image-20210705171513501](klipper-64k-USB.png)
 
-```
-sudo nano /boot/config.txt
-```
+`klipper-64k-UART.bin` : `0x10000(64k)` bootloader offset, choose UART to communicate with raspberrypi.
 
-Add `dtoverlay=pi3-disable-bt` at the end of the file. Then reboot again.
-
-```
-sudo reboot
-```
-
-Done.
-
-The main point to build klipper-UART0.bin is that you need to select `Communication interface` to `Serial (on USART1 PA10/PA9)` in `make menuconfig` when you compile Klipper.
-
-We make a cable as below , and it have the power cable in it two, so you can power the RPI with it.
-
-![](cable.jpg)
-
-### 2 : USB type-c cable
-
-If the communication between Spider board and RPI is on an USB type-C cable. Then klipper.bin is the firmware for you. And in printer.cfg you need to set the serial as below.
-```
-Obtain definition by "ls -l /dev/serial/by-id/" then unplug to verify
-##--------------------------------------------------------------------
-serial: /dev/serial/by-id/usb-Klipper_stm32f446xx_230032000851363131363530-if00
-```
-
-The main point to build klipper.bin is that you need to select `Communication interface` to `USB` in `make menuconfig` when you compile Klipper for Spider.
+![image-20210705171535093](klipper-64k-UART.png)

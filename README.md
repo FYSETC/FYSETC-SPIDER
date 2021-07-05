@@ -143,8 +143,6 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
    <tr><td></td><td>PA14/SWCLK</td><td>76</td><td>only used for debugging now and can be used for other purposes.</td></tr>
 </table>
 
-
-
 # 4. Firmware Guide 
 
 ## 4.1 Marlin
@@ -179,13 +177,116 @@ The check mark is for compiling , click it to compile.
 
 If you generate the hex file fail you may need to open vscode using Administrator Account .
 
-### 4.1.5 <span id="jump1">Upload the firmware(SDCARD)</span>
+### 4.1.4 Upload firmware
 
-We provide several ways to upload the firmware .Uploading firmware using SD card is our default way to update the firmware as Spider already has the bootloader in it when it leave the factory. But if you once upload the firmware to Spider flash address `0x08000000`, then the bootloader in Spider will be gone, you need to upload the bootloader to Spider yourself. The bootloader is in the folder named `bootloader`, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader).
+Follow Firmware Update guide [here](#jump0).
 
-Then,copy your compiled firmware file ```firmware.bin```(If you use klipper firmware, you need to rename `klipper.bin` to `firmware.bin`) file to the SD card , and insert it to the SD card slot which is at the right side of the board, and then power up the board. You may need to wait for about 30s to finish uploading, there is LED beside the sdcard slot blinking when it is uploading. 
+## 4.2 Klipper
 
-### 4.1.6 <span id="jump">Upload the firmware(DFU)</span>
+You need to follow the Klipper [installation guide](https://www.klipper3d.org/Installation.html) to install [Klipper](https://github.com/KevinOConnor/klipper).
+
+When calling `make menuconfig`, please select below options
+
+### 4.2.1 menuconfig
+
+- #### Enable `extra low-level configuration options`
+
+- #### Micro-controller Architecture
+
+Select `STMicroelectronics STM32`
+
+- #### Processor model
+
+Select `STM32F446`
+
+- #### Clock reference
+
+Select `12 MHz crystal`
+
+- #### Bootloader offset
+
+- ##### 1. Boot address no
+
+
+If you choose `No bootloader` bootloader offset in Klipper `make menuconfig`, then you can follow [Upload the firmware(DFU)](#jump) to upload the firmware to Spider board. **But you need to set the 'Start address' to 0x08000000**. So the sequence be 
+
+1. Click the button to find the DFU port.
+2. Connect the DFU 
+3. Choose the "klipper.bin" file.
+4. fill in the 'Start address' with 0x8000000
+5. Start Programming
+
+We have two pre-build firmwares for you  [klipper.bin](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) and [klipper-UART0.bin](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) (The differences between two firmware , you can check README [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper)). But it will be outdated as time pass. We will try to catch up with Klipper, but i recommend to build the firmware yourself.
+
+![image-20210705151440643](images\menuconfig1.png)
+
+- ##### 2. Boot address 32k
+
+
+If you choose `32k` bootloader offset in Klipper `make menuconfig`. Then you need to flash the spider board bootloader named `Bootloader_FYSETC_SPIDER` first, we recommend you to use this bootloader as we already change default bootloader offset from `64k` to `32k` since `2021/06/23`. The bootloader is in the folder named `bootloader` in this repo, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader). Then you can follow [Upload the firmware(SDCARD)](#jump1) to flash your built Klipper firmware to Spider.
+
+![image-20210705151337765](images\menuconfig2.png)
+
+- ##### 3. Boot address 64k
+
+
+If you choose `64k` bootloader offset in Klipper `make menuconfig`. Then you need to flash the spider board bootloader named `Bootloader_FYSETC_SPIDER_10000` first. The bootloader is in the folder named `bootloader` in this repo, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader). Then you can follow [Upload the firmware(SDCARD)](#jump1) to flash your built Klipper firmware to Spider.
+
+![image-20210705151951142](images\menuconfig3.png)
+
+- #### Communication interface
+
+- ##### 1. USB (on PA11/PA12)
+
+If you want to connect Spider to RaspberryPI with USB cable. You need to select `USB (on PA11/PA12)`
+
+![image-20210705154413053](images\ci1.png)
+
+And in `printer.cfg` you need to set the serial as below. We provide an example cfg file `printer.cfg` for VORON 2 machine [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper).
+
+```
+Obtain definition by "ls -l /dev/serial/by-id/" then unplug to verify
+##--------------------------------------------------------------------
+serial: /dev/serial/by-id/usb-Klipper_stm32f446xx_230032000851363131363530-if00
+```
+
+- ##### 2. Serial (on USART1 PA10/PA9)
+
+If you want to connect Spider UART1(RX1:PA10, TX1:PA9) port to RPI  uart0(TX:GPIO14,RX:GPIO15) port, you need to select `Serial (on USART1 PA10/PA9)`
+
+![image-20210705154625673](images\ci2.png)
+
+In `printer.cfg` you need to uncomment the following line as our example `printer.cfg` file [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) do, if your cfg file don't have this line, please add it.
+
+```
+serial: /dev/ttyAMA0
+```
+
+Besides this make option, you still need to follow the instructions that `Switch RPI hardware uart.md` file says, you can find the file [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper).
+
+### 4.2.2 Compile firmware
+
+```
+make
+```
+
+### 4.2.3 Upload firmware
+
+Follow Firmware Update guide [here](#jump0).
+
+## 4.3 RRF
+
+**As RRF firmware requires more than 512KB of Flash space, the Spider equipped with 446 cannot meet its requirements. So it needs to disable some features to make it work, please check the [README](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/RRF) in firmware/RRF folder.**
+
+## 4.4  <span id="jump0">Firmware Upload</span>
+
+### 4.4.1 <span id="jump1">Upload the firmware(SDCARD)</span>
+
+We provide several ways to upload the firmware .Uploading firmware using SD card is our default way to update the firmware as Spider already has the bootloader in it when it leave the factory. But if you once upload the firmware to Spider flash address `0x08000000`, then the bootloader in Spider will be gone, then you need to upload the bootloader to Spider yourself, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) to upload the bootloader.
+
+Copy your compiled firmware file ```firmware.bin```(If you use klipper firmware, you need to rename `klipper.bin` to `firmware.bin`) file to the SD card , and insert it to the SD card slot which is at the right side of the board, and then power up the board. You may need to wait for about 30s to finish uploading, there is LED beside the sdcard slot blinking when it is uploading. 
+
+### 4.4.2 <span id="jump">Upload the firmware(DFU)</span>
 
 The other way to upload the firmware is using DFU.
 
@@ -223,36 +324,6 @@ Do as the red number shows in the screen shot.
 3. Choose the "firmware.bin" file.
 4. Fill in the 'Start address' with 0x8008000 (If your platformio env is `default_envs = FYSETC_S6`, then you need to set it to `0x8010000`, in klipper if you choose boot address `32k` then set it `0x8008000`, if 64k , set it `0x8010000`, yes , you need different bootloader [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader))
 5. Start Programming
-
-## 4.2 Klipper
-
-You need to follow the Klipper [installation guide](https://www.klipper3d.org/Installation.html) to install [Klipper](https://github.com/KevinOConnor/klipper).
-
-When calling "menuconfig", enable "extra low-level configuration setup" and select the "12MHz crystal" as clock reference. 
-
-### Boot address no
-
-If you choose boot address setting `no` in Klipper, then you can follow [Upload the firmware(DFU)](#jump) to upload the firmware to Spider board. **But you need to set the 'Start address' to 0x08000000**. So the sequence be 
-
-1. Click the button to find the DFU port.
-2. Connect the DFU 
-3. Choose the "klipper.bin" file.
-4. fill in the 'Start address' with 0x8000000
-5. Start Programming
-
-We have two pre-build firmwares for you  [klipper.bin](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) and [klipper-UART0.bin](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) (The differences between two firmware , you can check README [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper)). But it will be outdated as time pass. We will try to catch up with Klipper, but i recommend to build the firmware yourself.
-
-### Boot address 32k
-
-You can also choose `32k` boot address in Klipper. Then you need to flash the spider board bootloader named `Bootloader_FYSETC_SPIDER` first. The bootloader is in the folder named `bootloader` in this repo, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader). Then you can follow [Upload the firmware(SDCARD)](#jump1) to flash your built Klipper firmware to Spider.
-
-### Boot address 64k
-
-You can also choose `64k` boot address in Klipper. Then you need to flash the spider board bootloader named `Bootloader_FYSETC_SPIDER_10000` first. The bootloader is in the folder named `bootloader` in this repo, please follow the README in [bootloader folder](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader). Then you can follow [Upload the firmware(SDCARD)](#jump1) to flash your built Klipper firmware to Spider.
-
-## 4.3 RRF
-
-**As RRF firmware requires more than 512KB of Flash space, the Spider equipped with 446 cannot meet its requirements. So it needs to disable some features to make it work, please check the README in firmware/RRF path.**
 
 # How to buy
 - [FYSETC](https://www.fysetc.com/products/pre-sale-fysetc-spider-v1-0-motherboard-32bit-controller-board-tmc2208-tmc2209-3d-printer-part-replace-skr-v1-3-for-voron?variant=39404109267119)
