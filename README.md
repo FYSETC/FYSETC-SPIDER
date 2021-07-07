@@ -30,11 +30,15 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 # 3. Haredware Guide
 
-## 3.1 Wiring
+## 3.1 Spider v1.0 wiring
 
-![](images/Spider_wiring.jpg)
+![](images/Spider_v1.0_wiring.jpg)
 
-## 3.2 Wiring : FYSETC mini 12864 v2.1 
+### 3.2 Spider v1.1 wiring
+
+![](images/Spider_v1.1_wiring.jpg)
+
+## 3.3 Wiring : FYSETC mini 12864 v2.1 
 
 ### 注意/NOTICE：
 
@@ -51,15 +55,15 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 | ![](images/mini12864-2.jpg) | ![](images/mini12864-3.jpg) |
 | --------------------------- | --------------------------- |
 
-## 3.3 Wiring : TMC2209
+## 3.4 Wiring : TMC2209
 
 ![](images/TMC2209.JPG)
 
-## 3.4 Pin Out
+## 3.5 Pin Out
 
 ![](images/Spider_V1.0_Pinout.jpg)
 
-## 3.5 Pin Definition
+## 3.6 Pin Definition
 
 <table>
    <tr><td>Features</td><td>Spider Pin</td><td>STM32 Pin</td><td>Pin No.</td><td>Comment</td></tr>
@@ -161,7 +165,7 @@ The Marlin firmware is in the `firmware/Marlin` folder in this repository , you 
 
 ```default_envs = FYSETC_S6_8000``` (For new bootloader,boot address is `0x8000`, see below)
 
-**Note: The bootloader boot address have been change to `0x8000` since 2021/06/23, you can check bootloader details [here](https://github.com/FYSETC/FYSETC-S6/tree/main/bootloader), and you can check the Marlin PR [here](https://github.com/MarlinFirmware/Marlin/pull/22207).**
+**Note: The bootloader boot address have been change to `0x8008000` since 2021/06/23, you can check bootloader details [here](https://github.com/FYSETC/FYSETC-S6/tree/main/bootloader), and you can check the Marlin PR [here](https://github.com/MarlinFirmware/Marlin/pull/22207).**
 
 ### 4.1.3 Compile the firmware
 
