@@ -5,6 +5,30 @@
 SPIDER is a small but powerful 3D printer control board. In a limited space, it integrates 8 stepper motor drives, 5A 12V power supply, 8A 5V power supply, which provides powerful energy for fans of various voltages, various RGB light strips and Raspberry Pi.
 You can build a 3D printer with rich functions through SPIDER. Especially for VORON V2.4, we cooperated with the VORON team in the early stage of design, and many features have been recognized by the VORON team. If you are building VORON, this will be your best choice.
 
+## 1.1 Change log
+
+### Spider v1.1 :
+
+- Add 5pin connector for BL-Touch
+
+![image-20210713103906622](images\v1.1_change0.png)
+
+- Switch EXP1 & EXP2 mark(Only mark, not socket)
+
+![image-20210713103825940](images\v1.1_change1.png)
+
+- Add +/- mark
+
+![image-20210713103934110](images\v1.1_change2.png)
+
+- Add room for RaspberryPI USB-A power supply port
+
+  You can solder the below USB port, then you can power-up RPI with a USB-A cable. It is USB power-supply port without signal.
+
+![](images\v1.1_change3.jpg)
+
+
+
 
 # 2. Features
 
