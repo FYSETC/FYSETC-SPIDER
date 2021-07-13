@@ -11,21 +11,21 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 - Add 5pin connector for BL-Touch
 
-![image-20210713103906622](images\v1.1_change0.png)
+![image-20210713103906622](images/v1.1_change0.png)
 
 - Switch EXP1 & EXP2 mark(Only mark, not socket)
 
-![image-20210713103825940](images\v1.1_change1.png)
+![image-20210713103825940](images/v1.1_change1.png)
 
 - Add +/- mark
 
-![image-20210713103934110](images\v1.1_change2.png)
+![image-20210713103934110](images/v1.1_change2.png)
 
 - Add room for RaspberryPI USB-A power supply port
 
   You can solder the below USB port, then you can power-up RPI with a USB-A cable. It is USB power-supply port without signal.
 
-![](images\v1.1_change3.jpg)
+![](images/v1.1_change3.jpg)
 
 
 
