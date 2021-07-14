@@ -353,7 +353,12 @@ Do as the red number shows in the screen shot.
 4. Fill in the 'Start address' with 0x8008000 (If your platformio env is `default_envs = FYSETC_S6`, then you need to set it to `0x8010000`, in klipper if you choose boot address `32k` then set it `0x8008000`, if 64k , set it `0x8010000`, yes , you need different bootloader [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader))
 5. Start Programming
 
+# Issue shot
+
+Spider 3.3v issue : check [here](https://github.com/FYSETC/FYSETC-SPIDER/blob/main/Spider%203.3v%20issue.md).
+
 # How to buy
+
 - [FYSETC](https://www.fysetc.com/products/pre-sale-fysetc-spider-v1-0-motherboard-32bit-controller-board-tmc2208-tmc2209-3d-printer-part-replace-skr-v1-3-for-voron?variant=39404109267119)
 - [Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.30.511751bfpMtaWP&id=649360814769&ns=1&abbucket=18#detail)
 - [Aliexpress](https://www.aliexpress.com/item/1005002324070189.html)
