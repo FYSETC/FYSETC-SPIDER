@@ -23,7 +23,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 - Add room for RaspberryPI USB-A power supply port
 
-  You can solder the below USB port, then you can power-up RPI with a USB-A cable. It is USB power-supply port without signal.
+  You can solder the below USB port, then you can power-up RPI with a USB-A cable. It is USB power-supply port without USB signal.
 
 ![](images/v1.1_change3.jpg)
 
@@ -189,7 +189,7 @@ The Marlin firmware is in the `firmware/Marlin` folder in this repository , you 
 
 ```default_envs = FYSETC_S6_8000``` (For new bootloader,boot address is `0x8000`, see below)
 
-**Note: The bootloader boot address have been change to `0x8008000` since 2021/06/23, you can check bootloader details [here](https://github.com/FYSETC/FYSETC-S6/tree/main/bootloader), and you can check the Marlin PR [here](https://github.com/MarlinFirmware/Marlin/pull/22207).**
+**Note: The bootloader boot address have been change to `0x08008000` since 2021/06/23, you can check bootloader details [here](https://github.com/FYSETC/FYSETC-S6/tree/main/bootloader), and you can check the Marlin PR [here](https://github.com/MarlinFirmware/Marlin/pull/22207).**
 
 ### 4.1.3 Compile the firmware
 
@@ -241,7 +241,7 @@ If you choose `No bootloader` bootloader offset in Klipper `make menuconfig`, th
 1. Click the button to find the DFU port.
 2. Connect the DFU 
 3. Choose the "klipper.bin" file.
-4. fill in the 'Start address' with 0x8000000
+4. fill in the 'Start address' with 0x08000000
 5. Start Programming
 
 We have two pre-build firmwares for you  [klipper-USB.bin](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) and [klipper-UART.bin](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper) (The differences between two firmware , you can check README [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper)). But it will be outdated as time pass. We will try to catch up with Klipper, but i recommend to build the firmware yourself.
@@ -350,7 +350,7 @@ Do as the red number shows in the screen shot.
 1. Click the button to find the DFU port.
 2. Connect the DFU 
 3. Choose the "firmware.bin" file.
-4. Fill in the 'Start address' with 0x8008000 (If your platformio env is `default_envs = FYSETC_S6`, then you need to set it to `0x8010000`, in klipper if you choose boot address `32k` then set it `0x8008000`, if 64k , set it `0x8010000`, yes , you need different bootloader [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader))
+4. Fill in the 'Start address' with 0x08008000 (If your platformio env is `default_envs = FYSETC_S6`, then you need to set it to `0x08010000`, in klipper if you choose boot address `32k` then set it `0x08008000`, if `64k` , set it `0x08010000`, yes , you need different bootloader [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader))
 5. Start Programming
 
 # Issue shot
