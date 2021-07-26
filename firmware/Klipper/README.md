@@ -4,6 +4,10 @@
 
 This in folder, there a `printer.cfg` file, this is an example Klipper configuration file for VORON2.4 machine. It is not copy-paste available config, you need to adjust the items in file, please read the file carefully, especially the first lines in the file.
 
+## Connect RPI UART
+
+Please follow [this](https://github.com/FYSETC/FYSETC-SPIDER/blob/main/firmware/Klipper/Connect%20RPI%20uart.md).
+
 ## Pre-builds
 
 For some beginners of Spider, i pre-build some firmwares for you, but i strongly recommend you to build the firmware yourself as Klipper update from time to time.  
