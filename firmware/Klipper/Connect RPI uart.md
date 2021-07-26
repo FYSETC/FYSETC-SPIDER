@@ -4,7 +4,7 @@ If you want to connect Spider UART1(RX1:PA10, TX1:PA9) port to RPI  uart0(TX:GPI
 
 1. Wiring
 
-   ![](E:\Projects\BOARD-FYSETC-SPIDER\FYSETC-SPIDER\images\cable.jpg)
+   ![](cable.jpg)
 
 2. Switch raspberryPI uart
 

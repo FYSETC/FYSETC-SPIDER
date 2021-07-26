@@ -290,7 +290,7 @@ In `printer.cfg` you need to uncomment the following line as our example `printe
 serial: /dev/ttyAMA0
 ```
 
-Besides this make option, you still need to follow the instructions that `Switch RPI hardware uart.md` file says, you can find the file [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/firmware/Klipper).
+Besides this make option, you still need to follow the instructions that `Connect RPI hardware uart.md` file says, you can find the file [here]([FYSETC-SPIDER/Switch RPI hardware uart.md at main · FYSETC/FYSETC-SPIDER (github.com)](https://github.com/FYSETC/FYSETC-SPIDER/blob/main/firmware/Klipper/Connect RPI uart.md)).
 
 ### 4.2.2 Compile firmware
 
