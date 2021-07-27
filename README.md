@@ -1,36 +1,44 @@
-* [1. Product Introduction](#1-product-introduction)
-  * [1.1 Change log](#11-change-log)
-    * [Spider v1.1 :](#spider-v11-)
-* [2. Features](#2-features)
-* [3. Haredware Guide](#3-haredware-guide)
-  * [3.1 Spider v1.0 wiring](#31-spider-v10-wiring)
-    * [3.2 Spider v1.1 wiring](#32-spider-v11-wiring)
-  * [3.3 Wiring : FYSETC mini 12864 v2.1](#33-wiring--fysetc-mini-12864-v21)
-    * [注意/NOTICE：](#notice)
-    * [Wiring](#wiring)
-  * [3.4 Wiring : TMC2209](#34-wiring--tmc2209)
-  * [3.5 Pin Out](#35-pin-out)
-  * [3.6 Pin Definition](#36-pin-definition)
-* [4. Firmware Guide](#4-firmware-guide)
-  * [4.1 Marlin](#41-marlin)
-    - [4.1.1 Download Vscode + platformio](#411-download-vscode--platformio)
-    - [4.1.2 Download firmware](#412-download-firmware)
-    - [4.1.3 Compile the firmware](#413-Compile-the-firmware)
-    - [4.1.4 Upload firmware](#414-Upload-the-firmware)
-  * [4.2 Klipper](#42-Klipper)
-    * [4.2.1 menuconfig](#421-menuconfig)
-    * [4.2.2 Compile firmware](#422-Compile-firmware)
-    * [4.2.3 Upload firmware](#423-upload-firmware)
-  * [4.3 RRF](#43-rrf)
-  * [4.4  Firmware Upload](#44--firmware-upload)
-    * [4.4.1 Upload the firmware(SDCARD)](#441-upload-the-firmwaresdcard)
-    * [4.4.2 Upload the firmware(DFU)](#442-upload-the-firmwaredfu)
-      * [a.Download stm32cubeprogrammer](#adownload-stm32cubeprogrammer)
-      * [b.Enter DFU mode](#benter-dfu-mode)
-      * [c.Upload the firmware](#cupload-the-firmware)
-* [Issue shot](#issue-shot)
-* [How to buy](#how-to-buy)
-* [Tech Support](#tech-support)
+[1. Product Introduction](#1-product-introduction)
+* [1.1 Change log](#11-change-log)
+  - [Spider v1.1 :](#spider-v11-)
+
+[2. Features](#2-features)
+
+[3. Haredware Guide](#3-haredware-guide)
+* [3.1 Spider v1.0 wiring](#31-spider-v10-wiring)
+* [3.2 Spider v1.1 wiring](#32-spider-v11-wiring)
+* [3.3 Wiring : FYSETC mini 12864 v2.1](#33-wiring--fysetc-mini-12864-v21)
+  * [注意/NOTICE：](#notice)
+  * [Wiring](#wiring)
+* [3.4 Wiring : TMC2209](#34-wiring--tmc2209)
+* [3.5 Pin Out](#35-pin-out)
+* [3.6 Pin Definition](#36-pin-definition)
+
+[4. Firmware Guide](#4-firmware-guide)
+* [4.1 Marlin](#41-marlin)
+  - [4.1.1 Download Vscode + platformio](#411-download-vscode--platformio)
+  - [4.1.2 Download firmware](#412-download-firmware)
+  - [4.1.3 Compile the firmware](#413-Compile-the-firmware)
+  - [4.1.4 Upload firmware](#414-Upload-the-firmware)
+* [4.2 Klipper](#42-Klipper)
+  * [4.2.1 menuconfig](#421-menuconfig)
+  * [4.2.2 Compile firmware](#422-Compile-firmware)
+  * [4.2.3 Upload firmware](#423-upload-firmware)
+* [4.3 RRF](#43-rrf)
+* [4.4  Firmware Upload](#44--firmware-upload)
+  * [4.4.1 Upload the firmware(SDCARD)](#441-upload-the-firmwaresdcard)
+  * [4.4.2 Upload the firmware(DFU)](#442-upload-the-firmwaredfu)
+    * [a.Download stm32cubeprogrammer](#adownload-stm32cubeprogrammer)
+    * [b.Enter DFU mode](#benter-dfu-mode)
+    * [c.Upload the firmware](#cupload-the-firmware)
+
+[5. Issue shot](#5. issue-shot)
+
+- [5.1 Spider 3.3v issue](#5.1 Spider 3.3v issue)
+
+[How to buy](#how-to-buy)
+
+[Tech Support](#tech-support)
 
 ![](images/Spider.png)
 
@@ -60,9 +68,6 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
   You can solder the below USB port, then you can power-up RPI with a USB-A cable. It is USB power-supply port without USB signal.
 
 ![](images/v1.1_change3.jpg)
-
-
-
 
 # 2. Features
 
@@ -387,16 +392,18 @@ Do as the red number shows in the screen shot.
 4. Fill in the 'Start address' with 0x08008000 (If your platformio env is `default_envs = FYSETC_S6`, then you need to set it to `0x08010000`, in klipper if you choose boot address `32k` then set it `0x08008000`, if `64k` , set it `0x08010000`, yes , you need different bootloader [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader))
 5. Start Programming
 
-# Issue shot
+# 5. Issue shot
 
-Spider 3.3v issue : check [here](https://github.com/FYSETC/FYSETC-SPIDER/blob/main/Spider%203.3v%20issue.md).
+## 5.1 Spider 3.3v issue
 
-# How to buy
+Please check [here](https://github.com/FYSETC/FYSETC-SPIDER/blob/main/Spider%203.3v%20issue.md).
+
+# 6. How to buy
 
 - [FYSETC](https://www.fysetc.com/products/pre-sale-fysetc-spider-v1-0-motherboard-32bit-controller-board-tmc2208-tmc2209-3d-printer-part-replace-skr-v1-3-for-voron?variant=39404109267119)
 - [Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.30.511751bfpMtaWP&id=649360814769&ns=1&abbucket=18#detail)
 - [Aliexpress](https://www.aliexpress.com/item/1005002324070189.html)
 
-# Tech Support
+# 7. Tech Support
 You can submit issue in our github https://github.com/FYSETC/FYSETC-SPIDER/issues
 Or submit any technical issue into our [forum](http://forum.fysetc.com/) 
