@@ -32,9 +32,9 @@
     * [b.Enter DFU mode](#benter-dfu-mode)
     * [c.Upload the firmware](#cupload-the-firmware)
 
-[5. Issue shot](#5. issue-shot)
+[5. Issue shot](#5.-Issue-shot)
 
-- [5.1 Spider 3.3v issue](#5.1 Spider 3.3v issue)
+- [5.1 Spider 3.3v issue](#5.1-Spider-3.3v-issue)
 
 [How to buy](#how-to-buy)
 
