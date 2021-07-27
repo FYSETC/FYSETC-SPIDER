@@ -15,6 +15,7 @@
 * [3.6 Pin Definition](#36-pin-definition)
 
 [4. Firmware Guide](#4-firmware-guide)
+
 * [4.1 Marlin](#41-marlin)
   - [4.1.1 Download Vscode + platformio](#411-download-vscode--platformio)
   - [4.1.2 Download firmware](#412-download-firmware)
@@ -32,9 +33,9 @@
     * [b.Enter DFU mode](#benter-dfu-mode)
     * [c.Upload the firmware](#cupload-the-firmware)
 
-[5. Issue shot](#5.-Issue-shot)
+[5. Issue shot](#5-issue-shot)
 
-- [5.1 Spider 3.3v issue](#5.1-Spider-3.3v-issue)
+- [5.1 Spider 3.3v issue](#51-spider-33v-issue)
 
 [How to buy](#how-to-buy)
 
