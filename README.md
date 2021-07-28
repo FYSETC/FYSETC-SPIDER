@@ -37,9 +37,9 @@
 
 - [5.1 Spider 3.3v issue](#51-spider-33v-issue)
 
-[How to buy](#how-to-buy)
+[6. How to buy](#6-how-to-buy)
 
-[Tech Support](#tech-support)
+[7. Tech Support](#7-tech-support)
 
 ![](images/Spider.png)
 
