@@ -4,7 +4,7 @@
 
 [2. Features](#2-features)
 
-[3. Haredware Guide](#3-haredware-guide)
+[3. Hardware Guide](#3-hardware-guide)
 * [3.1 Spider v1.0 wiring](#31-spider-v10-wiring)
 * [3.2 Spider v1.1 wiring](#32-spider-v11-wiring)
 * [3.3 Wiring : FYSETC mini 12864 v2.1](#33-wiring--fysetc-mini-12864-v21)
@@ -92,7 +92,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 - SD card & USB upload support
 - A 4.7kOhm 0.1% temperature sensor pull up resistor is used, PT1000 can be connected directly. For PT100, an amplifier board must be used.
 
-# 3. Haredware Guide
+# 3. Hardware Guide
 
 ## 3.1 Spider v1.0 wiring
 
