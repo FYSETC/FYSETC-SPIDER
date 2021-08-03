@@ -1,8 +1,8 @@
 lpc.board = fysetc_spider
 
 leds.diagnostic = D.3
-8266wifi.espDataReadyPin = D.1
-8266wifi.TfrReadyPin = D.0
+8266wifi.espDataReadyPin = D.0
+8266wifi.TfrReadyPin = D.1
 8266wifi.espResetPin = A.8
 8266wifi.csPin = C.9
 stepper.numSmartDrivers = 8;
