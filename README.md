@@ -29,7 +29,8 @@
 * [4.3 RRF](#43-rrf)
 * [4.4  Firmware Upload](#44--firmware-upload)
   * [4.4.1 Upload the firmware(SDCARD)](#441-upload-the-firmwaresdcard)
-  * [4.4.2 Upload the firmware(DFU)](#442-upload-the-firmwaredfu)
+  * [4.4.2 Upload the firmware(dfu-util)](#442-upload-the-firmwaredfu-util)
+  * [4.4.3 Upload the firmware(DFU)](#443-upload-the-firmwaredfu)
     * [a.Download stm32cubeprogrammer](#adownload-stm32cubeprogrammer)
     * [b.Enter DFU mode](#benter-dfu-mode)
     * [c.Upload the firmware](#cupload-the-firmware)
@@ -355,7 +356,44 @@ We provide several ways to upload the firmware .Uploading firmware using SD card
 
 Copy your compiled firmware file ```firmware.bin```(If you use klipper firmware, you need to rename `klipper.bin` to `firmware.bin`) file to the SD card , and insert it to the SD card slot which is at the right side of the board, and then power up the board. You may need to wait for about 30s to finish uploading, there is LED beside the sdcard slot blinking when it is uploading. 
 
-### 4.4.2 <span id="jump">Upload the firmware(DFU)</span>
+### 4.4.2 <span id="jump4">Upload the firmware(dfu-util)</span>
+
+This method works in linux, that means should work in raspberry pi.
+
+1. Make sure dfu-util is installed, shoot `dfu-util --version` command to check.
+
+   Sample output:
+
+   ```
+   dfu-util 0.9
+   
+   Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+   Copyright 2010-2016 Tormod Volden and Stefan Schmidt
+   This program is Free Software and has ABSOLUTELY NO WARRANTY
+   Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+   ```
+
+   If not , you should install it first, use the package manager of your distribution to get the latest version, like
+
+   ```
+   sudo apt-get install dfu-util
+   ```
+
+2. Power off board, remove SD Card, place jumper on BT0 and 3.3V. (Between Z- endstop and E0 driver) Connect Spider to PC/RaspberryPi with USB cable with jumper in place. Set U5V jumper closest to stepper driver modules to power Spider from the Pi USB, or power up with 24V. Verify 3.3V LED is lit and board is detected with `dfu-util --list`, should look something like
+
+   ```
+   <snip>
+   Found DFU: [0483:df11] ver=2200, devnum=13, cfg=1, intf=0, path="1-1.3", alt=3, name="@Device Feature/0xFFFF0000/01*004 e", serial="STM32FxSTM32"
+   Found DFU:<snip>
+   ```
+
+3. You should replace `firmware.bin` below with your built firmware bin file location like `out/klipper.bin`.
+
+   ```
+   dfu-util -R -a 0 -s 0x08008000:leave -D firmware.bin
+   ```
+
+### 4.4.3 <span id="jump">Upload the firmware(DFU)</span>
 
 The other way to upload the firmware is using DFU.
 
@@ -372,7 +410,7 @@ Open the STM32CubeProgrammer software.
 #### b.Enter DFU mode
 
 1. First power off the board
-2. Then close BT0 to 3.3V pin (You can find them in the middle area of the board)  with a jumper
+2. Place jumper on BT0 to 3.3V pin (You can find them in the middle area of the board) 
 3. Connect USB cable to the board and your computer 
 4. Power up the board
 
