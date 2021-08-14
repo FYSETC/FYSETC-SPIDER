@@ -1,12 +1,12 @@
 # Instruction
 
-The file `test_boot.bin` and `test_no_boot.bin` in this folder are the firmware for those who need to test their board or accessories before formal use. 
+The file `test_boot.bin` ,`test_boot_8000.bin`  and `test_no_boot.bin` in this folder are the firmware for those who need to test their board or accessories before formal use. The firmware is base on Marlin.
 
 **Please don't install the board to your machine if you want to use this test firmware.**
 
 ## How to flash
 
-`test_boot.bin` boot address is 0x0810000 , so you need a bootloader to make it work. You can follow the instruction [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) (in `Upload the bootloader` section) to flash the bootloader before you flash the `test_boot.bin`. And you can follow the instruction [here](https://github.com/FYSETC/FYSETC-SPIDER) to flash the test firmware (in  `Upload the firmware(SDCARD)` and `Upload the firmware(DFU)` section ).
+`test_boot.bin` boot address is 0x08010000 (64k) ，`test_boot_8000.bin` boot address is 0x08008000 (32k), so you need a bootloader to make them work. You can follow the instruction [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) (in `Upload the bootloader` section) to flash the bootloader before you flash them. And you can follow the instruction [here](https://github.com/FYSETC/FYSETC-SPIDER) to flash the test firmware (in  `Upload the firmware(SDCARD)` and `Upload the firmware(DFU)` section ).
 
 `test_no_boot.bin` is the test firmware which you don't need a bootloader, so follow the instruction [here](https://github.com/FYSETC/FYSETC-SPIDER) to flash the firmware (in`Upload the firmware(DFU)` section，**but remember to change the `Start address` from 0x08010000 to 0x08000000** ).
 
