@@ -38,13 +38,13 @@ There is `config` folder beside this README file, it is just an example config t
 
 # Hardware
 
-If you want to build a machine with this RRF firmware, then you have three ways to communicate with/control your machine.
+If you want to build a machine with this RRF firmware on Spider, then you have three ways to communicate with/control Spider.
 
-- USB serial
+## 1.USB serial
 
 After you flash bootloader and firmware, and insert the sdcard with example config(i really recommend you to make the config yourself), you should get information from USB serial now(Of course, you need a USB cable to connect Spider to your PC). So you can control the motherboard using RRF [gcode](https://duet3d.dozuki.com/Wiki/Gcode) now.
 
-- Paneldue
+## 2.Paneldue
 
 Control the machine with USB serial will be a hard job, so you may need a screen. And i remove other lcd support in this firmware, so i recommend you to use Paneldue, you can get it from our store [here](https://www.aliexpress.com/item/4000156345741.html). You can connect it to Spider using the wiring below.![](images/paneldue.jpg)
 
@@ -52,10 +52,12 @@ Control the machine with USB serial will be a hard job, so you may need a screen
 
 ![](images/paneldue2.jpg)
 
-- Wifi module
+## 3.Wifi module
 
-  Spider also support wifi module, but at the moment it is not on sale yet, so please wait for our news, we will make it ASAP.
+Spider also support wifi module. You can get the module [here](https://www.aliexpress.com/item/1005003145645569.html). 
 
-  ![](images/wifi1.png)
+![](images/wifi1.png)
 
-  ![](images/wifi2.png)
+![](images/wifi2.png)
+
+![](images/wifi3.jpg)
