@@ -2,7 +2,7 @@
 
 - ## Bootloader
 
-Before you use this RRF firmware, you need to follow the README [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) to upload the bootloader `Bootloader_FYSETC_SPIDER.hex` first. 
+Before you use this RRF firmware, you need to follow the README [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) to upload the bootloader `Bootloader_FYSETC_SPIDER.hex` first, boot offset is `32k` (`0x08008000`). 
 
 - ## Firmware
 
@@ -30,7 +30,7 @@ c3bf369 Add DuetWiFiSocketServer
 
 - ## Pre-builds
 
-This folder contains a firmware named `firmware.bin` , you can start RRF by flashing this firmware to have a try.
+This folder contains a firmware named `firmware.bin` , boot offset is `32k` (`0x08008000`), you can start RRF by flashing this firmware to have a try.
 
 - # config
 
@@ -46,7 +46,7 @@ After you flash bootloader and firmware, and insert the sdcard with example conf
 
 ## 2.Paneldue
 
-Control the machine with USB serial will be a hard job, so you may need a screen. And i remove other lcd support in this firmware, so i recommend you to use Paneldue, you can get it from our store [here](https://www.aliexpress.com/item/4000156345741.html). You can connect it to Spider using the wiring below.![](images/paneldue.jpg)
+Control the machine with USB serial will be a hard job, so you may need a screen to make the work easier. And i remove other lcd support in this firmware, so i recommend you to use Paneldue, you can get it from our store [here](https://www.aliexpress.com/item/4000156345741.html). You can connect it to Spider using the wiring below.![](images/paneldue.jpg)
 
 ![](images/paneldue1.jpg)
 
@@ -54,7 +54,7 @@ Control the machine with USB serial will be a hard job, so you may need a screen
 
 ## 3.Wifi module
 
-Spider also support wifi module. You can get the module [here](https://www.aliexpress.com/item/1005003145645569.html). 
+RRF in Spider also support wifi module. You can get the module [here](https://www.aliexpress.com/item/1005003145645569.html). 
 
 ![](images/wifi1.png)
 
