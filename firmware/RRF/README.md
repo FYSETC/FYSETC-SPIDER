@@ -26,17 +26,19 @@ c3bf369 Add DuetWiFiSocketServer
 
 ## Steps to use RRF
 
+- ### Step 1: Power supply
+
 First power on the Spider with a power supply.
 
-- ## Step1: Bootloader
+- ### Step2: Bootloader
 
 Before you use this RRF firmware, you need to follow the README [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) to upload the bootloader `Bootloader_FYSETC_SPIDER.hex` first, boot offset is `32k` (`0x08008000`). 
 
-- ## Step2: Pre-builds
+- ### Step3: Pre-builds
 
 This folder contains a firmware named `firmware.bin` , boot offset is `32k` (`0x08008000`), you can start RRF by flashing this firmware to have a try.
 
-- ## Step3: config
+- ### Step4: config
 
 There is `config` folder beside this README file, it is just an example config to run RRF. Copy all contents in the `config` folder to your sdcard root directory and insert the sdcard to Spider sdcard slot. You need to know this is just example for you to try RRF, it not for VORON or any machines. And if you make the right config for VORON, please make a PR for me, i will update it ASAP, thanks in advance. 
 
