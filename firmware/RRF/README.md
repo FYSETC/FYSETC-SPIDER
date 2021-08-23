@@ -54,7 +54,31 @@ Control the machine with USB serial will be a hard job, so you may need a screen
 
 ## 3.Wifi module
 
-RRF in Spider also support wifi module. You can get the module [here](https://www.aliexpress.com/item/1005003145645569.html). 
+RRF in Spider also support wifi module. You can get the module [here](https://www.aliexpress.com/item/1005003145645569.html). You can follow below steps to connect it to your wifi network.
+
+1. Stop wifi module
+
+   ```
+   M552 s-1
+   ```
+
+   You should receive `WiFi module stopped`.
+
+2. Start wifi module
+
+   ```
+   M552 s0
+   ```
+
+   You should receive `WiFi module started`.
+
+3. Setup your wifi network SSID and password.
+
+   ```
+   M587 S"ssid" P"password"
+   ```
+
+   The module should connect to your wifi network in 30s.
 
 ![](images/wifi1.png)
 
