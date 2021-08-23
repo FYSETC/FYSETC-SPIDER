@@ -1,10 +1,6 @@
 # Firmware
 
-- ## Bootloader
-
-Before you use this RRF firmware, you need to follow the README [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) to upload the bootloader `Bootloader_FYSETC_SPIDER.hex` first, boot offset is `32k` (`0x08008000`). 
-
-- ## Firmware
+## Changes
 
 This firmware is base on [gloomyandy/RRFBuild at v3.3-dev (github.com)](https://github.com/gloomyandy/RRFBuild/tree/v3.3-dev). The original firmware size is larger than 512k which exceed STM32F446 chip flash room. So i remove/disable some features. You can check what have been changed below. And there is `Patches` folder showing all the changes.
 
@@ -28,11 +24,17 @@ c3bf369 Add DuetWiFiSocketServer
 7b49883 Add CoreN2G
 ```
 
-- ## Pre-builds
+## Steps to use RRF
+
+- ## Step1: Bootloader
+
+Before you use this RRF firmware, you need to follow the README [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) to upload the bootloader `Bootloader_FYSETC_SPIDER.hex` first, boot offset is `32k` (`0x08008000`). 
+
+- ## Step2: Pre-builds
 
 This folder contains a firmware named `firmware.bin` , boot offset is `32k` (`0x08008000`), you can start RRF by flashing this firmware to have a try.
 
-- # config
+- ## Step3: config
 
 There is `config` folder beside this README file, it is just an example config to run RRF. Copy all contents in the `config` folder to your sdcard root directory and insert the sdcard to Spider sdcard slot. You need to know this is just example for you to try RRF, it not for VORON or any machines. And if you make the right config for VORON, please make a PR for me, i will update it ASAP, thanks in advance. 
 
