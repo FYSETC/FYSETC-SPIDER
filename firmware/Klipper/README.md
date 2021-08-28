@@ -6,7 +6,7 @@ This in folder, there a `printer.cfg` file, this is an example Klipper configura
 
 ## Connect RPI UART
 
-Please follow [this](https://github.com/FYSETC/FYSETC-SPIDER/blob/main/firmware/Klipper/Connect%20RPI%20uart.md).
+Please follow instruction here([github](https://github.com/FYSETC/FYSETC-SPIDER/blob/main/firmware/Klipper/Connect%20RPI%20uart.md) [gitee](https://gitee.com/fysetc/FYSETC-SPIDER/blob/main/firmware/Klipper/Connect%20RPI%20uart.md)).
 
 ## Pre-builds
 

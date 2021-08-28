@@ -32,7 +32,7 @@ First power on the Spider with a power supply.
 
 - ### Step2: Bootloader
 
-Before you use this RRF firmware, you need to follow the README [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) to upload the bootloader `Bootloader_FYSETC_SPIDER.hex` first, boot offset is `32k` (`0x08008000`). 
+Before you use this RRF firmware, you need to follow the README here ([github](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) [gitee](https://gitee.com/fysetc/FYSETC-SPIDER/tree/main/bootloader)) to upload the bootloader `Bootloader_FYSETC_SPIDER.hex` first, boot offset is `32k` (`0x08008000`). 
 
 - ### Step3: Pre-builds
 
