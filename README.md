@@ -43,6 +43,10 @@
 
 [7. Tech Support](#7-tech-support)
 
+[8. Related Articles](#8-related-articles)
+
+
+
 ![](images/Spider.png)
 
 # 1. Product Introduction
@@ -447,3 +451,9 @@ Please check here([github](https://github.com/FYSETC/FYSETC-SPIDER/blob/main/Spi
 # 7. Tech Support
 You can submit issue in our github https://github.com/FYSETC/FYSETC-SPIDER/issues
 Or submit any technical issue into our [forum](http://forum.fysetc.com/) 
+
+# 8. Related Articles
+
+[English](https://3dwork.io/en/complete-guide-fysetc-spider/)
+
+[Español](https://3dwork.io/guia-completa-fysetc-spider/)
