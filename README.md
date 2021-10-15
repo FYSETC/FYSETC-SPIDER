@@ -12,8 +12,9 @@
   * [注意/NOTICE：](#notice)
   * [Wiring](#wiring)
 * [3.4 Wiring : TMC2209](#34-wiring--tmc2209)
-* [3.5 Pin Out](#35-pin-out)
-* [3.6 Pin Definition](#36-pin-definition)
+* [3.5 Wiring : RaspberryPi](#35-wiring--raspberrypi)
+* [3.6 Pin Out](#36-pin-out)
+* [3.7 Pin Definition](#37-pin-definition)
 
 [4. Firmware Guide](#4-firmware-guide)
 
@@ -129,11 +130,15 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ![](images/TMC2209.JPG)
 
-## 3.5 Pin Out
+## 3.5 Wiring : RaspberryPi
+
+![](images/cable.jpg)
+
+## 3.6 Pin Out
 
 ![](images/Spider_V1.0_Pinout.jpg)
 
-## 3.6 Pin Definition
+## 3.7 Pin Definition
 
 <table>
    <tr><td>Features</td><td>Spider Pin</td><td>STM32 Pin</td><td>Pin No.</td><td>Comment</td></tr>
