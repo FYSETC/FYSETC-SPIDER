@@ -10,6 +10,8 @@ The file `test_boot.bin` ,`test_boot_8000.bin`  and `test_no_boot.bin` in this f
 
 `test_no_boot.bin` is the test firmware which you don't need a bootloader, so follow the instruction [here](https://github.com/FYSETC/FYSETC-SPIDER) to flash the firmware (in`Upload the firmware(DFU)` section，**but remember to change the `Start address` from 0x08010000 to 0x08000000** ).
 
+`test.hex` has both bootloader and firmware and boot offset is `0x8008000(32k)`. You can directly upload it without any other operations.
+
 ## How to use
 
 After you flash the test firmware, you need extra parts , list is below. Remember , all these parts are not necessary except `FYSETC mini 12864 v2.1` as the test firmware need  a display to show the test results. For other parts , you only need them when you want to test them.
