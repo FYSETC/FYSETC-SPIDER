@@ -10,11 +10,11 @@ You have 3 choice of test firmware below.
 
 ### Choice 1:
 
-`test.hex` has both bootloader and firmware and boot offset is `0x8008000(32k)`. You can directly upload it without any other operations. And you can follow the instruction [github](https://github.com/FYSETC/FYSETC-SPIDER#44--firmware-upload)/[gitee](https://gitee.com/fysetc/FYSETC-SPIDER#44--firmware-upload) to flash the test firmware (in  `Upload the firmware(DFU)` section )
+`test.hex` has both bootloader and firmware and boot offset is `0x8008000(32k)`. You can directly upload it without any other operations. And you can follow the instruction here [github](https://github.com/FYSETC/FYSETC-SPIDER#44--firmware-upload)/[gitee](https://gitee.com/fysetc/FYSETC-SPIDER#44--firmware-upload) to flash the test firmware (in  `Upload the firmware(DFU)` section )
 
 ### Choice 2:
 
-`test_boot.bin` boot address is 0x08010000 (64k) ，`test_boot_8000.bin` boot address is 0x08008000 (32k), so you need a bootloader to make them work. You can follow the instruction [here](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) (in `Upload the bootloader` section) to flash the bootloader before you flash them. And you can follow the instruction [here](https://github.com/FYSETC/FYSETC-SPIDER) to flash the test firmware (in  `Upload the firmware(SDCARD)` and `Upload the firmware(DFU)` section ).
+`test_boot.bin` boot address is 0x08010000 (64k) ，`test_boot_8000.bin` boot address is 0x08008000 (32k), so you need a bootloader to make them work. You can follow the instruction here [github](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader)/[gitee](https://gitee.com/fysetc/FYSETC-SPIDER/tree/main/bootloader) (in `Upload the bootloader` section) to flash the bootloader before you flash them. And you can follow the instruction here [[github](https://github.com/FYSETC/FYSETC-SPIDER#44--firmware-upload)/[gitee](https://gitee.com/fysetc/FYSETC-SPIDER#44--firmware-upload)](https://github.com/FYSETC/FYSETC-SPIDER) to flash the test firmware (in  `Upload the firmware(SDCARD)` and `Upload the firmware(DFU)` section ).
 
 ### Choice 3:
 
