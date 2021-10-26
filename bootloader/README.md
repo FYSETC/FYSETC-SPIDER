@@ -49,7 +49,7 @@ This method works in linux, that means should work in raspberry pi.
 
 This method only works in windows.
 
-- ##### Download stm32cubeprogrammer 
+### Step 1: Download stm32cubeprogrammer 
 
 
 You can download it from ST website.
@@ -60,19 +60,20 @@ Open the STM32CubeProgrammer software.
 
 ![STM32CubeProgrammer](images/STM32CubeProgrammer.png)
 
-- ##### Enter DFU mode
+### Step 2: Enter DFU mode
 
 
 1. First power off the board
-2. Then close BT0 to 3.3V pin (You can find them in the middle area of the board)  with a jumper
-3. Connect USB cable to the board and your computer 
-4. Power up the board
+2. Set jumper on 5v pin and DC5V ![](../images/5vJumper.png)
+3. Place jumper on BT0 to 3.3V pin ![](../images/boot.png)
+4. Connect USB cable to the board and your computer 
+5. Power up the board with 24v 
 
 Now the board is in DFU mode. 
 
 ***REMEMBER to remove the jumper if you finish uploading firmware or it will enter DFU mode again.***
 
-- ##### Upload the bootloader
+### Step 3: Upload the bootloader
 
 
 Now you can connect and flash the Spider board with STM32CubeProgrammer with the following operation.
