@@ -32,9 +32,9 @@
   * [4.4.1 Upload the firmware(SDCARD)](#441-upload-the-firmwaresdcard)
   * [4.4.2 Upload the firmware(dfu-util)](#442-upload-the-firmwaredfu-util)
   * [4.4.3 Upload the firmware(DFU)](#443-upload-the-firmwaredfu)
-    * [Step 1.Download stm32cubeprogrammer](#step-1download-stm32cubeprogrammer)
-    * [Step 2.Enter DFU mode](#step-2enter-dfu-mode)
-    * [Step 3.Upload the firmware](#step-3upload-the-firmware)
+    * [Step 1. Download stm32cubeprogrammer](#step-1-download-stm32cubeprogrammer)
+    * [Step 2. Enter DFU mode](#step-2-enter-dfu-mode)
+    * [Step 3. Upload the firmware](#step-3-upload-the-firmware)
 
 [5. Issue shot](#5-issue-shot)
 
@@ -406,7 +406,7 @@ This method works in linux, that means should work in raspberry pi.
 
 The other way to upload the firmware is using DFU.
 
-#### Step 1.Download stm32cubeprogrammer 
+#### Step 1. Download stm32cubeprogrammer 
 
 You can download it from ST website.
 
@@ -416,7 +416,7 @@ Open the STM32CubeProgrammer software.
 
 ![1574332767079](images/S6_1574332767079.png)
 
-#### Step 2.Enter DFU mode
+#### Step 2. Enter DFU mode
 
 1. First power off the board
 2. Set jumper on 5v pin and DC5V ![](images/5vJumper.png)
@@ -428,7 +428,7 @@ Now the board is in DFU mode.
 
 ***REMEMBER to remove the jumper if you finish uploading firmware or it will enter DFU mode again.***
 
-#### Step 3.Upload the firmware
+#### Step 3. Upload the firmware
 
 Now you can connect and flash the Spider board with stm32cubeprogrammer with the following operation.
 
