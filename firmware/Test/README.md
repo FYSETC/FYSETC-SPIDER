@@ -10,7 +10,7 @@ You have 3 choice of test firmware below.
 
 ### Choice 1:
 
-`test.hex` has both bootloader and firmware and boot offset is `0x8008000(32k)`. You can directly upload it without any other operations. And you can follow the instruction [here](https://github.com/FYSETC/FYSETC-SPIDER) to flash the test firmware (in  `Upload the firmware(SDCARD)` and `Upload the firmware(DFU)` section )
+`test.hex` has both bootloader and firmware and boot offset is `0x8008000(32k)`. You can directly upload it without any other operations. And you can follow the instruction [github](https://github.com/FYSETC/FYSETC-SPIDER#44--firmware-upload)/[gitee](https://gitee.com/fysetc/FYSETC-SPIDER#44--firmware-upload) to flash the test firmware (in  `Upload the firmware(DFU)` section )
 
 ### Choice 2:
 
