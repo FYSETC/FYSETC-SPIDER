@@ -4,6 +4,8 @@
 
 This in folder, there a `printer.cfg` file, this is an example Klipper configuration file for VORON2.4 machine. It is not copy-paste available config, you need to adjust the items in file, please read the file carefully, especially the first lines in the file.
 
+When using the Fysetc Spider version 2.2 or higher, please use the file `printer_v2.2.cfg` and rename it to `printer.cfg`. Functionally both example configs are the same, except for updated heater bed and fan pins.
+
 ## Connect RPI UART
 
 Please follow instruction here([github](https://github.com/FYSETC/FYSETC-SPIDER/blob/main/firmware/Klipper/Connect%20RPI%20uart.md) [gitee](https://gitee.com/fysetc/FYSETC-SPIDER/blob/main/firmware/Klipper/Connect%20RPI%20uart.md)).
