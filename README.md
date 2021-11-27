@@ -1,20 +1,20 @@
 [1. Product Introduction](#1-product-introduction)
 
 * [1.1 Change log](#11-change-log)
-  - [Spider v1.1 :](#spider-v11-)
+  - [1.1.1 Spider v1.1](#111-spider-v11)
+  - [1.1.2 Spider v2.x](#112-spider-v2x)
 
 [2. Features](#2-features)
 
 [3. Hardware Guide](#3-hardware-guide)
-* [3.1 Spider v1.0 wiring](#31-spider-v10-wiring)
-* [3.2 Spider v1.1 wiring](#32-spider-v11-wiring)
-* [3.3 Wiring : FYSETC mini 12864 v2.1](#33-wiring--fysetc-mini-12864-v21)
+* [3.1 Spider wiring](#31-spider-wiring)
+* [3.2 Wiring : FYSETC mini 12864 v2.1](#32-wiring--fysetc-mini-12864-v21)
   * [注意/NOTICE：](#notice)
   * [Wiring](#wiring)
-* [3.4 Wiring : TMC2209](#34-wiring--tmc2209)
-* [3.5 Wiring : RaspberryPi](#35-wiring--raspberrypi)
-* [3.6 Pin Out](#36-pin-out)
-* [3.7 Pin Definition](#37-pin-definition)
+* [3.3 Wiring : TMC2209](#33-wiring--tmc2209)
+* [3.4 Wiring : RaspberryPi](#34-wiring--raspberrypi)
+* [3.5 Pin Out](#35-pin-out)
+* [3.6 Pin Definition](#36-pin-definition)
 
 [4. Firmware Guide](#4-firmware-guide)
 
@@ -131,15 +131,21 @@ V2.2
 
 # 3. Hardware Guide
 
-## 3.1 Spider v1.0 wiring
+## 3.1 Spider wiring
+
+### 3.1.1 Spider v1.0 wiring
 
 ![](images/Spider_v1.0_wiring.jpg)
 
-### 3.2 Spider v1.1 wiring
+### 3.1.2 Spider v1.1 wiring
 
 ![](images/Spider_v1.1_wiring.jpg)
 
-## 3.3 Wiring : FYSETC mini 12864 v2.1 
+### 3.1.3 Spider v2.2 wiring
+
+![](images/Spider_v2.2_wiring.jpg)
+
+## 3.2 Wiring : FYSETC mini 12864 v2.1 
 
 ### 注意/NOTICE：
 
@@ -156,27 +162,27 @@ V2.2
 | ![](images/mini12864-2.jpg) | ![](images/mini12864-3.jpg) |
 | --------------------------- | --------------------------- |
 
-## 3.4 Wiring : TMC2209
+## 3.3 Wiring : TMC2209
 
 ![](images/TMC2209.JPG)
 
-## 3.5 Wiring : RaspberryPi
+## 3.4 Wiring : RaspberryPi
 
 ![](images/cable.jpg)
 
-## 3.6 Pin Out
+## 3.5 Pin Out
 
-### 3.6.1 Spider v1.x
+### 3.5.1 Spider v1.x
 
 ![](images/Spider_V1.0_Pinout.jpg)
 
-### 3.6.2 Spider v2.2
+### 3.5.2 Spider v2.2
 
 ![](images/Spider_V2.2_Pinout.jpg)
 
-## 3.7 Pin Definition
+## 3.6 Pin Definition
 
-### 3.7.1 Spider v1.x
+### 3.6.1 Spider v1.x
 
 <table>
    <tr><td>Features</td><td>Spider Pin</td><td>STM32 Pin</td><td>Pin No.</td><td>Comment</td></tr>
@@ -259,7 +265,7 @@ V2.2
    <tr><td rowspan="3">SWD Debug</td><td></td><td>PA13/SWDIO</td><td>72</td><td>only used for debugging now and can be used for other purposes.</td></tr>
    <tr><td></td><td>PA14/SWCLK</td><td>76</td><td>only used for debugging now and can be used for other purposes.</td></tr>
 </table>
-### 3.7.2 Spider 2.2
+### 3.6.2 Spider 2.2
 
 <table>
    <tr><td>Features</td><td>Spider Pin</td><td>STM32 Pin</td><td>Pin No.</td><td>Comment</td></tr>
