@@ -57,7 +57,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ## 1.1 Change log
 
-### Spider v1.1 :
+### 1.1.1 Spider v1.1 
 
 - Add 5pin connector for BL-Touch
 
@@ -77,18 +77,47 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ![](images/v1.1_change3.jpg)
 
+### 1.1.2 Spider v2.x
+
+V2.0 
+
+1. Add 48V stepstick support x3 
+2. Add TVS and Bleeding resistance to every stepstick socket 
+3. Change 12V/5A to SY8205 
+4. Change the Raspberry Pi 5V and system 5V to separate DC-DC circuits (3A per channel) 
+5. Add separate 3.3V to stepsticks 
+6. Change PCB to 6 layers 
+7. Optimize some wiring. 
+8. Change the series diode of the driver circuit to a 15A fuse（1808） 
+
+V2.1 
+
+1. Change 48V stepstick support to 2 
+2. Change 12V/5A to 12V/3A 
+3. Change the Raspberry Pi 5V (3A to 5A) and system 5V(5A to 3A ) 
+4. Add RESET 1x2 Pin header 
+
+V2.2 
+
+1. Add two thermistor sockets, a total of 6. 
+2. Change FAN0 to PA13，FAN1 to PA14
+3. Add pin definition silkscreen on the bottom.
+
 # 2. Features
 
 - Compact size: 155.3mm x 76.5mm
 - **Based on STM32F446 180Mhz，all IOs can withstand 5V voltage**
 - **8 TMC stepper** drivers support, with Uart&SPI support
+- V2.2：Add Two 60V-Max stepper driver slot
 - Improved TMC jumper settings again，simpler and easier 
-- 28V input max，12V@5A DC-DC，**5V@8A DC-DC (Especially for Raspberry Pi)**，3.3V@0.8A LDO
+- V1.0&V1.1:  28V input max，12V@5A DC-DC，**5V@8A DC-DC (Especially for Raspberry Pi)**，3.3V@0.8A LDO
+- V2.2: 28V input max，12V@3A DC-DC，5V@5A DC-DC for Raspberry，5V@3A DC-DC for mcu and RGB, Two 3.3V@0.8A LDO for MCU and motors
 - Two car fuses for hot bed input and main power input
 - Limit switch socket 24V/5V/3.3V optional, ready for more other equipment, such as -inductive sensor, BL-Touch
 - XH2.54 connectors
 - 10x PWM capable power mosfet outputs (1 for HotBed, 3 for Heat-End, 3 for fans, 3 for RGB LED strip)
-- 3pin temperature header, you can use thermistor or thermocouple (requires AD597 module)
+- V1.0&V1.1: 3pin temperature header, you can use thermistor or thermocouple (requires AD597 module)
+- V2.2: Up to 6 temperature sensors support
 - **Up to 8 ways PWM fans**  (only use 1 extrueder and no 12V/24V RGB used )，2 ways RGB led(12V & 24V optional) ，**1 way 5V-RGB led (NEO-PIXEL/WS2812)**
 - RepRapDiscount SmartController compatible pin header on board
 - **UART1-Raspberry Pi pin header (including 5V@8A power supply)**
@@ -98,6 +127,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 - EXP1 & EXP2 have more multiplexing functions, such as USART, I2C, CAN
 - SD card & USB upload support
 - A 4.7kOhm 0.1% temperature sensor pull up resistor is used, PT1000 can be connected directly. For PT100, an amplifier board must be used.
+-  V2.2: Add more protection (TVS for each motor divers, current limit resistor, VMOT fuse)
 
 # 3. Hardware Guide
 
@@ -136,9 +166,17 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ## 3.6 Pin Out
 
+### 3.6.1 Spider v1.x
+
 ![](images/Spider_V1.0_Pinout.jpg)
 
+### 3.6.2 Spider v2.2
+
+![](images/Spider_V2.2_Pinout.jpg)
+
 ## 3.7 Pin Definition
+
+### 3.7.1 Spider v1.x
 
 <table>
    <tr><td>Features</td><td>Spider Pin</td><td>STM32 Pin</td><td>Pin No.</td><td>Comment</td></tr>
@@ -198,6 +236,91 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
    <tr><td>TE1（THERM1）</td><td>PC1</td><td>16</td><td>A 4.7kOhm 0.1% temperature sensor pull up resistor is used,PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
    <tr><td>TE2（THERM2）</td><td>PC2</td><td>17</td><td>A 4.7kOhm 0.1% temperature sensor pull up resistor is used,PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
    <tr><td>TB（THERM3）</td><td>PC3</td><td>18</td><td>A 4.7kOhm 0.1% temperature sensor pull up resistor is used,PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
+   <tr><td rowspan="8">EXP2</td><td>LCD_D7</td><td>PD1/CAN-TX1</td><td>82</td><td>Share with CAN-TX1</td></tr>
+   <tr><td>LCD_D6</td><td>PD0/CAN-RX1</td><td>81</td><td>Share with CAN-RX1</td></tr>
+   <tr><td>LCD_D5</td><td>PC12/MOSI3/TX5/SDA2</td><td>80</td><td></td></tr>
+   <tr><td>LCD_D4</td><td>PC10/SCK3/TX3/4</td><td>78</td><td></td></tr>
+   <tr><td>LCD_EN</td><td>PC11/MISO3/RX3/4</td><td>79</td><td></td></tr>
+   <tr><td>LCD_RS</td><td>PD2/RX5</td><td>83</td><td></td></tr>
+   <tr><td>ENC_C</td><td>PA8/SCL3</td><td>67</td><td></td></tr>
+   <tr><td>BEEP</td><td>PC9/SDA3</td><td>66</td><td></td></tr>
+   <tr><td rowspan="8">EXP1</td><td>RESET</td><td>NRST</td><td>14</td><td></td></tr>
+   <tr><td>ENC_A</td><td>PC6/TX6</td><td>63</td><td></td></tr>
+   <tr><td>ENC_B</td><td>PC7/RX6</td><td>64</td><td></td></tr>
+   <tr><td>SD-DET</td><td>PB10/SCL2</td><td>47</td><td></td></tr>
+   <tr><td>SD-MISO</td><td>PA6/MISO1</td><td>31</td><td></td></tr>
+   <tr><td>SD-MOSI</td><td>PA7/MOSI1</td><td>32</td><td></td></tr>
+   <tr><td>SCK</td><td>PA5/SCK1</td><td>30</td><td></td></tr>
+   <tr><td>CS</td><td>PA4/CS1</td><td>29</td><td></td></tr>
+   <tr><td rowspan="2">EEPROM(4K) I2C Pin-Out</td><td>SCL</td><td>PB8/SCL1</td><td>95</td><td>Connect to 24LC32(4K EEPROM)</td></tr>
+   <tr><td>SDA</td><td>PB9/SDA1</td><td>96</td><td>Connect to 24LC32(4K EEPROM)</td></tr>
+   <tr><td rowspan="2">Pi_PWR/UART</td><td>TX</td><td>PA9/TX1</td><td>68</td><td></td></tr>
+   <tr><td>RX</td><td>PA10/RX1</td><td>69</td><td></td></tr>
+   <tr><td rowspan="3">SWD Debug</td><td></td><td>PA13/SWDIO</td><td>72</td><td>only used for debugging now and can be used for other purposes.</td></tr>
+   <tr><td></td><td>PA14/SWCLK</td><td>76</td><td>only used for debugging now and can be used for other purposes.</td></tr>
+</table>
+### 3.7.2 Spider 2.2
+
+<table>
+   <tr><td>Features</td><td>Spider Pin</td><td>STM32 Pin</td><td>Pin No.</td><td>Comment</td></tr>
+   <tr><td rowspan="4">X-MOTOR(1)</td><td>X-Step</td><td>PE11</td><td>42</td><td></td></tr>
+   <tr><td>X-DIR</td><td>PE10</td><td>41</td><td></td></tr>
+   <tr><td>X-EN</td><td>PE9</td><td>40</td><td></td></tr>
+   <tr><td>X-CS/PDN</td><td>PE7</td><td>38</td><td></td></tr>
+   <tr><td rowspan="4">Y-MOTOR(2)</td><td>Y-Step</td><td>PD8</td><td>55</td><td></td></tr>
+   <tr><td>Y-DIR</td><td>PB12</td><td>51</td><td></td></tr>
+   <tr><td>Y-EN</td><td>PD9</td><td>56</td><td></td></tr>
+   <tr><td>Y-CS/PDN</td><td>PE15</td><td>46</td><td></td></tr>
+   <tr><td rowspan="4">Z-MOTOR(3)</td><td>Z-Step</td><td>PD14</td><td>61</td><td></td></tr>
+   <tr><td>Z-DIR</td><td>PD13</td><td>60</td><td></td></tr>
+   <tr><td>Z-EN</td><td>PD15</td><td>62</td><td></td></tr>
+   <tr><td>Z-CS/PDN</td><td>PD10</td><td>57</td><td></td></tr>
+   <tr><td rowspan="4">E0-MOTOR(4)</td><td>E0-Step</td><td>PD5</td><td>86</td><td></td></tr>
+   <tr><td>E0-DIR</td><td>PD6</td><td>87</td><td></td></tr>
+   <tr><td>E0-EN</td><td>PD4</td><td>85</td><td></td></tr>
+   <tr><td>E0-CS/PDN</td><td>PD7</td><td>88</td><td></td></tr>
+   <tr><td rowspan="4">E1-MOTOR(5)</td><td>E1-Step</td><td>PE6</td><td>5</td><td></td></tr>
+   <tr><td>E1-DIR</td><td>PC13</td><td>7</td><td></td></tr>
+   <tr><td>E1-EN</td><td>PE5</td><td>4</td><td></td></tr>
+   <tr><td>E1-CS/PDN</td><td>PC14</td><td>8</td><td></td></tr>
+   <tr><td rowspan="4">E2-MOTOR(6)</td><td>E2-Step</td><td>PE2</td><td>1</td><td></td></tr>
+   <tr><td>E2-DIR</td><td>PE4</td><td>3</td><td></td></tr>
+   <tr><td>E2-EN</td><td>PE3</td><td>2</td><td></td></tr>
+   <tr><td>E2-CS/PDN</td><td>PC15</td><td>9</td><td></td></tr>
+   <tr><td rowspan="4">E3-MOTOR(7)</td><td>E3-Step</td><td>PD12</td><td>39</td><td></td></tr>
+   <tr><td>E3-DIR</td><td>PC4</td><td>33</td><td></td></tr>
+   <tr><td>E3-EN</td><td>PE8</td><td>59</td><td></td></tr>
+   <tr><td>E3-CS/PDN</td><td>PA15</td><td>77</td><td></td></tr>
+   <tr><td rowspan="4">E4-MOTOR(8)</td><td>E4-Step</td><td>PE1</td><td>34</td><td></td></tr>
+   <tr><td>E4-DIR</td><td>PE0</td><td>97</td><td></td></tr>
+   <tr><td>E4-EN</td><td>PC5</td><td>98</td><td></td></tr>
+   <tr><td>E4-CS/PDN</td><td>PD11</td><td>58</td><td></td></tr>
+   <tr><td rowspan="3">TMC Driver SPI (SPI4)</td><td>MOSI</td><td>PE14</td><td>45</td><td></td></tr>
+   <tr><td>MISO</td><td>PE13</td><td>44</td><td></td></tr>
+   <tr><td>SCK</td><td>PE12</td><td>43</td><td></td></tr>
+   <tr><td rowspan="6">End-stops</td><td>X-MIN</td><td>PB14</td><td>53</td><td>Share with X-DIAG</td></tr>
+   <tr><td>X-MAX</td><td>PA1</td><td>24</td><td>Share with E0-DIAG</td></tr>
+   <tr><td>Y-MIN</td><td>PB13</td><td>52</td><td>Share with Y-DIAG</td></tr>
+   <tr><td>Y-MAX</td><td>PA2</td><td>25</td><td>Share with E1-DIAG</td></tr>
+   <tr><td>Z-MIN</td><td>PA0</td><td>23</td><td>Share with Z-DIAG</td></tr>
+   <tr><td>Z-MAX(Probe)</td><td>PA3</td><td>26</td><td>Share with E2-DIAG</td></tr>
+   <tr><td rowspan="7">FAN/RGB</td><td>FAN0</td><td>PA13</td><td>72</td><td></td></tr>
+   <tr><td>FAN1</td><td>PA14</td><td>76</td><td></td></tr>
+   <tr><td>FAN2</td><td>PB2/BOOT1</td><td>37</td><td></td></tr>
+   <tr><td>LED-R</td><td>PB6</td><td>92</td><td>Can be used for fan3</td></tr>
+   <tr><td>LED-G</td><td>PB5</td><td>91</td><td>Can be used for fan4</td></tr>
+   <tr><td>LED-B</td><td>PB7</td><td>93</td><td>Can be used for fan5</td></tr>
+   <tr><td>5V-LED(WS2812)</td><td>PD3</td><td>84</td><td>Share with flash indicator(Bootloader)</td></tr>
+   <tr><td rowspan="4">Heating</td><td>E0-Heater</td><td>PB15</td><td>54</td><td></td></tr>
+   <tr><td>E1-Heater</td><td>PC8</td><td>65</td><td></td></tr>
+   <tr><td>E2-Heater</td><td>PB3</td><td>89</td><td></td></tr>
+   <tr><td>Heated-Bed</td><td>PB4</td><td>90</td><td></td></tr>
+   <tr><td rowspan="4">Temperature</td><td>TE0（THERM0）</td><td>PC0</td><td>15</td><td>A 4.7kOhm 0.1% temperature sensor pull up resistor is used,PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
+   <tr><td>TE1（THERM1）</td><td>PC1</td><td>16</td><td>A 4.7kOhm 0.1% temperature sensor pull up resistor is used,PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
+   <tr><td>TE2（THERM2）</td><td>PC2</td><td>17</td><td>A 4.7kOhm 0.1% temperature sensor pull up resistor is used,PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
+   <tr><td>TE3（THERM3）</td><td>PC3</td><td>18</td><td>A 4.7kOhm 0.1% temperature sensor pull up resistor is used,PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
+   <tr><td>TE4（THERM4）</td><td>PB1</td><td>36</td><td>A 4.7kOhm 0.1% temperature sensor pull up resistor is used,PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
+   <tr><td>TB（THERM3）</td><td>PB0</td><td>35</td><td>A 4.7kOhm 0.1% temperature sensor pull up resistor is used,PT1000 can be connected directly. For PT100, an amplifier board must be used.</td></tr>
    <tr><td rowspan="8">EXP2</td><td>LCD_D7</td><td>PD1/CAN-TX1</td><td>82</td><td>Share with CAN-TX1</td></tr>
    <tr><td>LCD_D6</td><td>PD0/CAN-RX1</td><td>81</td><td>Share with CAN-RX1</td></tr>
    <tr><td>LCD_D5</td><td>PC12/MOSI3/TX5/SDA2</td><td>80</td><td></td></tr>
@@ -439,7 +562,7 @@ Do as the red number shows in the screen shot.
 1. Click the button to find the DFU port.
 2. Connect the DFU 
 3. Choose the "firmware.bin" file.
-4. Fill in the 'Start address' with 0x08008000 (If your platformio env is `default_envs = FYSETC_S6`, then you need to set it to `0x08010000`, in klipper if you choose boot address `32k` then set it `0x08008000`, if `64k` , set it `0x08010000`, yes , you need different bootloader here ([github](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) or [gitee](https://gitee.com/fysetc/FYSETC-SPIDER/tree/main/bootloader))
+4. Fill in the 'Start address' with 0x08008000 (If you use Marlin and your platformio env is `default_envs = FYSETC_S6`, then you need to set it to `0x08010000`, if you use klipper and you choose boot address `32k` on menuconfig then set it `0x08008000`, if `64k` , set it `0x08010000`, and you need different bootloader here ([github](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) or [gitee](https://gitee.com/fysetc/FYSETC-SPIDER/tree/main/bootloader))
 5. Start Programming
 
 # 5. Issue shot
