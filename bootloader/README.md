@@ -2,7 +2,7 @@
 
 # Bootloader
 
-**First of all, you need know that, the FYSETC Spider bootloader boot address have been change to `0x8000` since 2021/06/23. So the default bootloader `Bootloader_FYSETC_SPIDER.hex` boot address is `0x8000` or `32k`. And the old bootloader boot address is `0x10000` or `64k`, and the repo still contains it, its name is  `Bootloader_FYSETC_SPIDER_10000.hex`. So when you are going to update the bootloader, you should choose the right one.** 
+**First of all, you need know that, the FYSETC Spider bootloader boot address have been change to `0x8000` since 2021/06/23. So the default bootloader `Bootloader_FYSETC_SPIDER.hex` boot address is `0x08008000` or `32k`. And the old bootloader boot address is `0x08010000` or `64k`, and the repo still contains it, its name is  `Bootloader_FYSETC_SPIDER_10000.hex`. So when you are going to update the bootloader, you should choose the right one.** 
 
 We provide you two methods to upload the bootloader.
 
