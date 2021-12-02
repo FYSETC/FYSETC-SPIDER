@@ -145,6 +145,10 @@ V2.2
 
 ![](images/Spider_v2.2_wiring.jpg)
 
+48v and 24v connector
+
+![](images/24_48.jpg)
+
 ## 3.2 Wiring : FYSETC mini 12864 v2.1 
 
 ### 注意/NOTICE：
