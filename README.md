@@ -149,6 +149,14 @@ V2.2
 
 ![](images/24_48.jpg)
 
+#### Spider v2.2 wiring for VORON 2.4
+
+![](images/VORON2.4_SPIDER_V22_WIRING.jpg)
+
+#### Spider v2.2 wiring for VORON Trident
+
+![](images/VORON_Trident_Spider_v22_Wiring.png)
+
 ## 3.2 Wiring : FYSETC mini 12864 v2.1 
 
 ### 注意/NOTICE：
