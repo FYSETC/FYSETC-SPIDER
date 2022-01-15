@@ -594,9 +594,15 @@ If you compile Marlin yourself with platformio,you can follow the instructions b
 
 # 5. Issue shot
 
-## 5.1 Spider 3.3v issue
+### 5.1 Spider 3.3v issue
 
 Please check here([github](https://github.com/FYSETC/FYSETC-SPIDER/blob/main/Spider%203.3v%20issue.md) [gitee](https://gitee.com/fysetc/FYSETC-SPIDER/blob/main/Spider%203.3v%20issue.md)).
+
+### 5.2 TMC2209 connection error
+
+Please add a jumper on each TMC2209 on your Spider board.
+
+![image-20220115115634509](images\tmc2209_error.png)
 
 # 6. How to buy
 
