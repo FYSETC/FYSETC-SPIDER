@@ -39,6 +39,7 @@
 [5. Issue shot](#5-issue-shot)
 
 - [5.1 Spider 3.3v issue](#51-spider-33v-issue)
+- [5.2 TMC2209 connection issue](#52-tmc2209-connection-issue)
 
 [6. How to buy](#6-how-to-buy)
 
@@ -590,7 +591,7 @@ If you compile Marlin yourself with platformio,you can follow the instructions b
 
 #### Step 2. Click the upload button to upload firmware
 
-![](E:\Projects\BOARD-FYSETC-CHEETAH\FYSETC-Cheetah-v2.0\images\platformio_upload.png)
+![](images/platformio_upload.png)
 
 # 5. Issue shot
 
@@ -598,11 +599,11 @@ If you compile Marlin yourself with platformio,you can follow the instructions b
 
 Please check here([github](https://github.com/FYSETC/FYSETC-SPIDER/blob/main/Spider%203.3v%20issue.md) [gitee](https://gitee.com/fysetc/FYSETC-SPIDER/blob/main/Spider%203.3v%20issue.md)).
 
-### 5.2 TMC2209 connection error
+### 5.2 TMC2209 connection issue
 
 Please add a jumper on each TMC2209 on your Spider board.
 
-![image-20220115115634509](images\tmc2209_error.png)
+![image-20220115115634509](images/tmc2209_error.png)
 
 # 6. How to buy
 
