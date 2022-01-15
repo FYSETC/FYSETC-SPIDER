@@ -2,7 +2,21 @@
 
 ## printer.cfg
 
-This in folder, there a `printer.cfg` file, this is an example Klipper configuration file for VORON2.4 machine. It is not copy-paste available config, you need to adjust the items in file, please read the file carefully, especially the first lines in the file.
+This in folder, there a `printer.cfg` file, this is an example Klipper configuration file for VORON2.4 machine. It is not copy-paste available config, you need to adjust the items in file, please read the file carefully, especially the first lines in the file. You need to change the items according to your machine.
+
+```\
+## *** THINGS TO CHANGE/CHECK: ***
+## Spider version                       Please round search 'Spider', you need to choose Spider v1.x or v2.x pins define
+## MCU paths                            [mcu] section
+## Thermistor types                     [extruder] and [heater_bed] sections - See 'sensor types' list at end of file
+## Z Endstop Switch location            [safe_z_home] section
+## Homing end position                  [gcode_macro G32] section
+## Z Endstop Switch  offset for Z0      [stepper_z] section
+## Probe points                         [quad_gantry_level] section
+## Min & Max gantry corner postions     [quad_gantry_level] section
+## PID tune                             [extruder] and [heater_bed] sections
+## Fine tune E steps                    [extruder] section
+```
 
 ## Connect RPI UART
 
