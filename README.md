@@ -601,9 +601,15 @@ Please check here([github](https://github.com/FYSETC/FYSETC-SPIDER/blob/main/Spi
 
 ### 5.2 TMC2209 connection issue
 
-Please add a jumper on each TMC2209 on your Spider board.
+Fix 1 : Please add a jumper on each TMC2209 on your Spider board. And restart the machine again.
 
 ![image-20220115115634509](images/tmc2209_error.png)
+
+Fix 2: Try to shoot Klipper command 
+
+```
+INIT_TMC
+```
 
 # 6. How to buy
 
