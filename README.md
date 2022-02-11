@@ -608,8 +608,10 @@ Fix 1 : Please add a jumper on each TMC2209 on your Spider board. And restart th
 Fix 2: Try to shoot Klipper command 
 
 ```
-INIT_TMC
+INIT_TMC STEPPER=<name>
 ```
+
+name can be `stepper_x`,`stepper_y`and other stepper in your `printer.cfg`.
 
 # 6. How to buy
 
