@@ -6,7 +6,7 @@ The file `test_boot.bin` ,`test_boot_8000.bin`  and `test_no_boot.bin` in this f
 
 ## How to flash
 
-You have 3 choice of test firmware below.
+You have 3 choice of test firmware below. Recommend to use `Choice 1`，it is much simple. 
 
 ### Choice 1:
 
@@ -18,7 +18,7 @@ You have 3 choice of test firmware below.
 
 ### Choice 3:
 
-`test_no_boot.bin` is the test firmware which you don't need a bootloader, so follow the instruction [here](https://github.com/FYSETC/FYSETC-SPIDER) to flash the firmware (in`Upload the firmware(DFU)` section，**but remember to change the `Start address` from 0x08010000 to 0x08000000** ).
+`test_no_boot.bin` is the test firmware which you don't need a bootloader, so follow the instruction [here](https://github.com/FYSETC/FYSETC-SPIDER) to flash the firmware (in`Upload the firmware(DFU)` section，**but remember to set `Start address` to 0x08000000** ).
 
 ## How to use
 

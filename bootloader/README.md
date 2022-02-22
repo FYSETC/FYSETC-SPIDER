@@ -75,7 +75,7 @@ This method works in linux, that means should work in raspberry pi. ***According
    sudo apt-get install dfu-util
    ```
 
-2. Power off board, remove SD Card, place jumper on BT0 and 3.3V. (Between Z- endstop and E0 driver) Connect Spider to Pi with USB cable with jumper in place. Set U5V jumper closest to stepper driver modules to power Spider from the Pi USB, or power up with 24V. Verify 3.3V LED is lit and board is detected with `dfu-util --list`, should look something like
+2. Power off board, remove SD Card, place jumper on BT0 and 3.3V. (Between Z- endstop and E0 driver) Connect Spider to Pi with USB cable with jumper in place. Set U5V jumper closest to stepper driver modules to power Spider from the Pi USB. Verify 3.3V LED is lit and board is detected with `dfu-util --list`, should look something like
 
    ```
    <snip>

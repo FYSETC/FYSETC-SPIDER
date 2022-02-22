@@ -4,6 +4,8 @@ If you want to connect Spider UART1(RX1:PA10, TX1:PA9) port to RPI  uart0(TX:GPI
 
 ## Step 1 : Wiring
 
+Please wiring as below shows.
+
 ![](cable.jpg)
 
 ## Step 2 : Switch raspberryPI uart
