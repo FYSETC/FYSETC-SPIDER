@@ -2,9 +2,11 @@
 
 # Bootloader
 
-**First of all, you need know that, the FYSETC Spider bootloader boot address have been change to `0x8000` since 2021/06/23. So the default bootloader `Bootloader_FYSETC_SPIDER.hex` boot address is `0x08008000` or `32k`. And the old bootloader boot address is `0x08010000` or `64k`, and the repo still contains it, its name is  `Bootloader_FYSETC_SPIDER_10000.hex`. So when you are going to update the bootloader, you should choose the right one.** 
+Bootloader is the boot program, which is a code placed at the beginning of the flash space of the motherboard storage. The main function is to make the motherboard have the function to flash firmware with sdcard. Due to historical reasons, we provide two versions of bootloader, namely 32k bootloader `Bootloader_FYSETC_SPIDER.hex` and 64k bootloader `Bootloader_FYSETC_SPIDER_10000.hex`,
 
-We provide you two methods to upload the bootloader.
+But from 2021/06/23, the 64k bootloader is no longer used, and the new spider motherboard comes with 32k bootloader. However, because the old motherboard (factory before 2021/06/23) comes with a 64k bootloader, for compatibility, a 64k bootloader is still provided here. It is recommended that the old motherboard can be updated to 32k bootloader according to the instructions below.
+
+We provide two methods to upload the bootloader.
 
 ## Method 1 : stm32cubeprogrammer
 
@@ -45,12 +47,10 @@ Do as the red number shows in the screen shot.
 
 1. Click the button to find the DFU port.
 2. Connect the DFU 
-3. Choose the downloaded "Bootloader-FYSETC_SPIDER.hex" file. (If old bootloader, see below, choose `Bootloader_FYSETC_SPIDER_10000.hex`). 
+3. Choose the downloaded "Bootloader-FYSETC_SPIDER.hex" file. (If 64k bootloader,choose `Bootloader_FYSETC_SPIDER_10000.hex`). 
 4. Start Programming
 
 **We will continue to update, please look forward to it!***
-
-**You need know that, the FYSETC Spider bootloader boot address have been change to `0x8000` since 2021/06/23. So the default bootloader `Bootloader_FYSETC_SPIDER.hex` boot address is `0x8000` or `32k`. And the old bootloader boot address is `0x10000` or `64k`, and the repo still contains it, its name is  `Bootloader_FYSETC_SPIDER_10000.hex`. So when you are going to update the bootloader, you should choose the right one.** 
 
 ## Method 2: dfu-util 
 
