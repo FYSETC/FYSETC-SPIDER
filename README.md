@@ -500,9 +500,11 @@ Follow Firmware Update guide [here](#jump0).
 
 ## 4.4  <span id="jump0">Firmware Upload</span>
 
+We provide several ways to upload the firmware including SDCARD, dfu-util, DFU and platformio.
+
 ### 4.4.1 <span id="jump1">Upload the firmware(SDCARD)</span>
 
-We provide several ways to upload the firmware .Uploading firmware using SD card is our default way to update the firmware as Spider already has the bootloader in it when it leave the factory. But if you once upload the firmware to Spider flash address `0x08000000`, then the bootloader in Spider will be gone, then you need to upload the bootloader to Spider yourself, please follow the README in bootloader folder ([github](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) or [gitee](https://gitee.com/fysetc/FYSETC-SPIDER/tree/main/bootloader)) to upload the bootloader.
+Uploading firmware using SD card is our default way to update the firmware as Spider already has the bootloader in it when it leave the factory. But if you once upload the firmware to Spider flash address `0x08000000`, then the bootloader in Spider will be gone, then you need to upload the bootloader to Spider yourself, please follow the README in bootloader folder ([github](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/bootloader) or [gitee](https://gitee.com/fysetc/FYSETC-SPIDER/tree/main/bootloader)) to upload the bootloader.
 
 Uploading firmware using SD card: copy your compiled firmware file ```firmware.bin```(If you use klipper firmware, you need to rename `klipper.bin` to `firmware.bin`) file to the SD card , and insert it to the SD card slot which is at the right side of the board, and then power up the board. You may need to wait for about 30s to finish uploading, there is LED beside the sdcard slot blinking when it is uploading. 
 
@@ -595,7 +597,7 @@ Do as the red number shows in the screen shot.
 4. Fill in the 'Start address' (If you use Marlin firmware and your platformio env is `default_envs = FYSETC_S6`, then you need to set it to `0x08010000`, if env is `default_envs = FYSETC_S6_8000`, then you need to set it to `0x08008000` . If you use klipper firmware and you choose boot address `no bootloader` when compiling then set it `0x08000000`, if `32kiB bootloader` , set it `0x08008000`. if `64KiB bootloader` set it to `0x08010000`. If yours is hex file, don't need to set anything).
 5. Start Programming
 
-### 4.4.4 Upload firmware(platformio)
+### 4.4.4 Upload the firmware(platformio)
 
 If you compile Marlin yourself with platformio,you can follow the instructions below to upload the firmware.
 
