@@ -377,7 +377,10 @@ To compile the firmware , you need to install Visual Studio Code and the platfor
 
 The Marlin firmware is in the `firmware/Marlin` folder in this repository , you can also get the firmware from latest [Marlin bugfix-2.0.x branch](https://github.com/MarlinFirmware/Marlin/tree/bugfix-2.0.x). You need to enable following define in ```configuration.h``` file  
 
-`#define MOTHERBOARD BOARD_FYSETC_SPIDER`
+```
+#define MOTHERBOARD BOARD_FYSETC_SPIDER
+#define SERIAL_PORT -1
+```
 
 Then we need to change `platformio.ini` file
 
@@ -398,8 +401,6 @@ If everything goes fine , at the bottom you can see several buttons
 ![1561099546202](images/AIO_f2.png)
 
 The check mark is for compiling , click it to compile. You can find built `firmware.bin` at `.pio\build\FYSETC_S6` or `.pio\build\FYSETC_S6_8000` folder.
-
-If you generate the hex file fail you may need to open vscode using Administrator Account .
 
 ### 4.1.4 Upload firmware
 
