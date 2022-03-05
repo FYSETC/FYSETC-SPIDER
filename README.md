@@ -669,3 +669,7 @@ Or submit any technical issue into our [forum](http://forum.fysetc.com/)
 [English](https://3dwork.io/en/complete-guide-fysetc-spider/)
 
 [Español](https://3dwork.io/guia-completa-fysetc-spider/)
+
+# 9. Application examples
+
+Check the README in `example` folder ([github](https://github.com/FYSETC/FYSETC-SPIDER/tree/main/example) [gitee](https://gitee.com/fysetc-mirrors/FYSETC-SPIDER/tree/main/example)).
