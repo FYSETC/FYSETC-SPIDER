@@ -6,7 +6,7 @@ This in folder, there a `printer.cfg` file, this is an example Klipper configura
 
 ```\
 ## *** THINGS TO CHANGE/CHECK: ***
-## Spider version                       Please round search 'Spider', you need to choose Spider v1.x or v2.x pins define
+## Spider version                       Please search this file for "SpiderVersion" and uncomment the appropriate line for each
 ## MCU paths                            [mcu] section
 ## Thermistor types                     [extruder] and [heater_bed] sections - See 'sensor types' list at end of file
 ## Z Endstop Switch location            [safe_z_home] section
