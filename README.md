@@ -656,8 +656,6 @@ Fix 2: If you use Klipper firmware, choose `No bootloader` option when compiling
 
 ### 5.4 heatbed/fan on at startup
 
-可以对管脚进行开机电平设定，对于 Spider 1.x 主板，根据高亮部分进行设定
-
 We can set the pin voltage at startup. For Spider 1.x
 
 ![](images/startup1.x.png)
