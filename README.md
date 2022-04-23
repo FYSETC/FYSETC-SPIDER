@@ -654,6 +654,18 @@ Fix 1: Reflash the bootloader, follow the instruction here ( github gitee ).
 
 Fix 2: If you use Klipper firmware, choose `No bootloader` option when compiling, and upload the firmware to `0x08000000` flash address. Refer to [Upload the firmware(dfu-util)](#jump4) or [Upload the firmware(DFU)](#jump) chapter.
 
+### 5.4 heatbed/fan on at startup
+
+可以对管脚进行开机电平设定，对于 Spider 1.x 主板，根据高亮部分进行设定
+
+We can set the pin voltage at startup. For Spider 1.x
+
+![](images/startup1.x.png)
+
+For Spider 2.x
+
+![](images/startup2.x.png)
+
 # 6. How to buy
 
 - [FYSETC](https://www.fysetc.com/products/pre-sale-fysetc-spider-v1-0-motherboard-32bit-controller-board-tmc2208-tmc2209-3d-printer-part-replace-skr-v1-3-for-voron?variant=39404109267119)
