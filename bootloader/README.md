@@ -54,7 +54,7 @@ Do as the red number shows in the screen shot.
 
 ## Method 2: dfu-util 
 
-This method works in linux, that means should work in raspberry pi. ***According to community members feedbacks, someone runs into klipper no connection with Spider. If you run into this situration, please use method 1 instead.***
+This method works in linux, works in raspberry pi. ***According to community members feedbacks, someone runs into klipper no connection with Spider. If you run into this situration, please use method 1 instead.***
 
 1. Make sure dfu-util is installed, shoot `dfu-util --version` command to check.
 

@@ -523,7 +523,7 @@ This method works in linux, that means should work in raspberry pi.
 
 3. Place jumper on BT0 to 3.3V pin ![](images/boot.png)
 
-4. Connect USB cable to the board and your computer 
+4. Connect USB cable to the board and your computer (If you use raspberry pi to upload firmware, connect USB cable to your raspberry pi)
 
 5. Power up the board with 24v 
 
