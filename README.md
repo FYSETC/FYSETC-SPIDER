@@ -199,7 +199,13 @@ V2.3
 
 ## 3.4 Wiring : RaspberryPi
 
-![](images/cable.jpg)
+##### Spider 1.x, Spider 2.2
+
+![](images/spider_rpi.png)
+
+##### Spider 2.3
+
+![](images/spider2.3_rpi.png)
 
 ## 3.5 Pin Out
 
