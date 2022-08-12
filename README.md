@@ -103,6 +103,13 @@ V2.2
 2. Change FAN0 to PA13，FAN1 to PA14
 3. Add pin definition silkscreen on the bottom.
 
+V2.3
+
+1. Change 12v-24v RGB port layout to 3 fan ports, which can be used as a fan port more conveniently and still maintain RGB output support
+2. Optimize the fan control circuit, upgrade the buffer chip to independent triode control, enhance stability and greatly improve safety performance 
+3. All motor drive module interface communication networks add high voltage buffering and voltage clamping processing, adding a shield to the MCU 
+4. Re-layout the PCB, connectors position changed
+
 # 2. Features
 
 - Compact size: 155.3mm x 76.5mm
@@ -157,6 +164,18 @@ V2.2
 
 ![](images/VORON_Trident_Spider_v22_Wiring.png)
 
+### 3.1.4 Spider v2.3 wiring
+
+![](images/Spider_V2.3_Wiring.jpg)
+
+#### Spider v2.2 wiring for VORON 2.4
+
+![](images/VORON2.4_SPIDER_V23_WIRING.jpg)
+
+#### Spider v2.3 wiring for VORON Trident
+
+![](images/VORON_TRIDENT_SPIDER_V23_WIRING.jpg)
+
 ## 3.2 Wiring : FYSETC mini 12864 v2.1
 
 ### 注意/NOTICE：
@@ -191,6 +210,10 @@ V2.2
 ### 3.5.2 Spider v2.2
 
 ![](images/Spider_V2.2_Pinout.jpg)
+
+### 3.5.3 Spider v2.3
+
+![](images/Spider_V2.3_Pinout.jpg)
 
 ## 3.6 Pin Definition
 
@@ -278,7 +301,7 @@ V2.2
    <tr><td></td><td>PA14/SWCLK</td><td>76</td><td>only used for debugging now and can be used for other purposes.</td></tr>
 </table>
 
-### 3.6.2 Spider v2.2
+### 3.6.2 Spider v2.x
 
 <table>
    <tr><td>Features</td><td>Spider Pin</td><td>STM32 Pin</td><td>Pin No.</td><td>Comment</td></tr>
