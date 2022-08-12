@@ -164,6 +164,10 @@ V2.3
 
 ![](images/VORON_Trident_Spider_v22_Wiring.png)
 
+#### Spider v2.2 Afterburner Toolhead wiring
+
+![](images/Spider_V2.2_ToolHead_Wiring.png)
+
 ### 3.1.4 Spider v2.3 wiring
 
 ![](images/Spider_V2.3_Wiring.jpg)
@@ -175,6 +179,10 @@ V2.3
 #### Spider v2.3 wiring for VORON Trident
 
 ![](images/VORON_TRIDENT_SPIDER_V23_WIRING.jpg)
+
+#### Spider v2.3 Afterburner Toolhead wiring
+
+![](images/Spider_V2.3_ToolHead_Wiring.png)
 
 ## 3.2 Wiring : FYSETC mini 12864 v2.1
 
