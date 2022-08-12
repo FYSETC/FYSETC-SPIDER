@@ -168,7 +168,7 @@ V2.3
 
 ![](images/Spider_V2.3_Wiring.jpg)
 
-#### Spider v2.2 wiring for VORON 2.4
+#### Spider v2.3 wiring for VORON 2.4
 
 ![](images/VORON2.4_SPIDER_V23_WIRING.jpg)
 
