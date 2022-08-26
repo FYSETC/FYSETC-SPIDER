@@ -182,7 +182,7 @@ V2.3
 
 #### Spider v2.3 Afterburner Toolhead wiring
 
-![](F:\Projects\BOARD-FYSETC-SPIDER\FYSETC-SPIDER\images\Spider_V2.3_ToolHead_Wiring.png)
+![](images/Spider_V2.3_ToolHead_Wiring.png)
 
 ## 3.2 Wiring : FYSETC mini 12864 v2.1
 
