@@ -668,11 +668,13 @@ INIT_TMC STEPPER=<name>
 
 name can be `stepper_x`,`stepper_y`and other stepper in your `printer.cfg`.
 
-### 5.3 `firmware.bin` not changed to `old.bin`
+### 5.3 `firmware.bin` not changed to `old.bin`/bootloader not working
 
 Fix 1: Reflash the bootloader, follow the instruction here ( github gitee ).
 
-Fix 2: If you use Klipper firmware, choose `No bootloader` option when compiling, and upload the firmware to `0x08000000` flash address. Refer to [Upload the firmware(dfu-util)](#jump4) or [Upload the firmware(DFU)](#jump) chapter.
+Fix 2: Format your SD card with [SD Card Formatter](https://www.sdcardformatter.com/). 
+
+Fix 3: If you use Klipper firmware, choose `No bootloader` option when compiling, and upload the firmware to `0x08000000` flash address. Refer to [Upload the firmware(dfu-util)](#jump4) or [Upload the firmware(DFU)](#jump) chapter.
 
 ### 5.4 Not boot to klipper/No id found
 
