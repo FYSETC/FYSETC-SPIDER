@@ -1,5 +1,3 @@
-
-
 # Bootloader
 
 Bootloader is the boot program, which is a code placed at the beginning of the flash space of the motherboard storage. The main function is to make the motherboard have the function to flash firmware with sdcard. Due to historical reasons, we provide two versions of bootloader, namely 32k bootloader `Bootloader_FYSETC_SPIDER.hex` and 64k bootloader `Bootloader_FYSETC_SPIDER_10000.hex`,
@@ -12,19 +10,19 @@ We provide two methods to upload the bootloader.
 
 This method only works in windows.
 
-### Step 1: Download stm32cubeprogrammer 
-
+### Step 1: Download stm32cubeprogrammer
 
 You can download it from ST website.
 
-https://www.st.com/zh/development-tools/stm32cubeprog.html
+Chinese: [STM32CubeProg](https://www.st.com/zh/development-tools/stm32cubeprog.html)
+
+English: [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html)
 
 Open the STM32CubeProgrammer software.
 
 ![STM32CubeProgrammer](images/STM32CubeProgrammer.png)
 
 ### Step 2: Enter DFU mode
-
 
 1. First power off the board
 2. Set jumper on 5v pin and DC5V ![](../images/5vJumper.png)
@@ -38,28 +36,29 @@ Now the board is in DFU mode.
 
 ### Step 3: Upload the bootloader
 
-
 Now you can connect and flash the Spider board with STM32CubeProgrammer with the following operation.
 
 ![Steps](images/Steps.png)
 
 Do as the red number shows in the screen shot.
 
-1. Click the button to find the DFU port.
-2. Connect the DFU 
-3. Choose the downloaded "Bootloader-FYSETC_SPIDER.hex" file. (If 64k bootloader,choose `Bootloader_FYSETC_SPIDER_10000.hex`). 
-4. Start Programming
+1. Change to USB
+2. Click the button to find the DFU port.
+3. Connect the DFU 
+4. Change to "Erase and Programming"
+5. Choose the downloaded "Bootloader-FYSETC_SPIDER.hex" file. (If 64k bootloader,choose `Bootloader_FYSETC_SPIDER_10000.hex`). 
+6. Start Programming
 
 **We will continue to update, please look forward to it!***
 
-## Method 2: dfu-util 
+## Method 2: dfu-util
 
 This method works in linux, works in raspberry pi. ***According to community members feedbacks, someone runs into klipper no connection with Spider. If you run into this situration, please use method 1 instead.***
 
 1. Make sure dfu-util is installed, shoot `dfu-util --version` command to check.
-
+   
    Sample output:
-
+   
    ```
    dfu-util 0.9
    
@@ -68,15 +67,15 @@ This method works in linux, works in raspberry pi. ***According to community mem
    This program is Free Software and has ABSOLUTELY NO WARRANTY
    Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
    ```
-
+   
    If not , you should install it first, use the package manager of your distribution to get the latest version, like
-
+   
    ```
    sudo apt-get install dfu-util
    ```
 
 2. Power off board, remove SD Card, place jumper on BT0 and 3.3V. (Between Z- endstop and E0 driver) Connect Spider to Pi with USB cable with jumper in place. Set U5V jumper closest to stepper driver modules to power Spider from the Pi USB. Verify 3.3V LED is lit and board is detected with `dfu-util --list`, should look something like
-
+   
    ```
    <snip>
    Found DFU: [0483:df11] ver=2200, devnum=13, cfg=1, intf=0, path="1-1.3", alt=3, name="@Device Feature/0xFFFF0000/01*004 e", serial="STM32FxSTM32"

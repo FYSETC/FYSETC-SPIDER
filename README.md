@@ -580,6 +580,10 @@ Then use the command below to upload the firmware. You should replace `firmware.
 dfu-util -R -a 0 -s 0x08008000:leave -D firmware.bin
 ```
 
+### Step 4. Reset MCU
+
+Remove BT0 jumper and click the Spider RESET button.
+
 ### 4.4.3 <span id="jump">Upload the firmware(DFU)</span>
 
 The other way to upload the firmware is using DFU.
@@ -588,7 +592,9 @@ The other way to upload the firmware is using DFU.
 
 You can download it from ST website.
 
-https://www.st.com/zh/development-tools/stm32cubeprog.html
+Chinese: [STM32CubeProg](https://www.st.com/zh/development-tools/stm32cubeprog.html)
+
+English: [STM32CubeProg](https://www.st.com/en/development-tools/stm32cubeprog.html)
 
 Open the STM32CubeProgrammer software.
 
@@ -614,11 +620,17 @@ Now you can connect and flash the Spider board with stm32cubeprogrammer with the
 
 Do as the red number shows in the screen shot.
 
-1. Click the button to find the DFU port.
-2. Connect the DFU 
-3. Choose the "firmware.bin" file. (or .hex file).
-4. Fill in the 'Start address' (If you use Marlin firmware and your platformio env is `default_envs = FYSETC_S6`, then you need to set it to `0x08010000`, if env is `default_envs = FYSETC_S6_8000`, then you need to set it to `0x08008000` . If you use klipper firmware and you choose boot address `no bootloader` when compiling then set it `0x08000000`, if `32kiB bootloader` , set it `0x08008000`. if `64KiB bootloader` set it to `0x08010000`. If yours is hex file, don't need to set anything).
-5. Start Programming
+1. Change to USB
+2. Click the button to find the DFU port.
+3. Connect the DFU 
+4. Change to "Erase and Programming"
+5. Choose the "firmware.bin" file. (or .hex file).
+6. Fill in the 'Start address' (If you use Marlin firmware and your platformio env is `default_envs = FYSETC_S6`, then you need to set it to `0x08010000`, if env is `default_envs = FYSETC_S6_8000`, then you need to set it to `0x08008000` . If you use klipper firmware and you choose boot address `no bootloader` when compiling then set it `0x08000000`, if `32kiB bootloader` , set it `0x08008000`. if `64KiB bootloader` set it to `0x08010000`. If yours is hex file, don't need to set anything).
+7. Start Programming
+
+#### Step 4. Reset MCU
+
+Remove BT0 jumper and click the Spider RESET button.
 
 ### 4.4.4 Upload the firmware(platformio)
 
