@@ -48,7 +48,7 @@
 
 [8. Related Articles](#8-related-articles)
 
-![](images/Spider.png)
+![](hardware/V3.0/spiderV3.0.285.jpg)
 
 # 1. Product Introduction
 
@@ -57,29 +57,21 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ## 1.1 Change log
 
-### 1.1.1 Spider v1.1
+**V1.1**
 
-- Add 5pin connector for BL-Touch
+1. Add 5pin connector for BL-Touch
 
-![image-20210713103906622](images/v1.1_change0.png)
+2. Switch EXP1 & EXP2 mark(Only mark, not socket)
 
-- Switch EXP1 & EXP2 mark(Only mark, not socket)
+3. Add +/- mark
 
-![image-20210713103825940](images/v1.1_change1.png)
+4. Add room for RaspberryPI USB-A power supply port
 
-- Add +/- mark
+5. You can solder the below USB port, then you can power-up RPI with a USB-A cable. It is USB power-supply port without USB signal.
 
-![image-20210713103934110](images/v1.1_change2.png)
+---
 
-- Add room for RaspberryPI USB-A power supply port
-  
-  You can solder the below USB port, then you can power-up RPI with a USB-A cable. It is USB power-supply port without USB signal.
-
-![](images/v1.1_change3.jpg)
-
-### 1.1.2 Spider v2.x
-
-V2.0 
+**V2.0** 
 
 1. Add 48V stepstick support x3 
 2. Add TVS and Bleeding resistance to every stepstick socket 
@@ -90,25 +82,41 @@ V2.0
 7. Optimize some wiring. 
 8. Change the series diode of the driver circuit to a 15A fuse（1808） 
 
-V2.1 
+---
+
+**V2.1** 
 
 1. Change 48V stepstick support to 2 
 2. Change 12V/5A to 12V/3A 
 3. Change the Raspberry Pi 5V (3A to 5A) and system 5V(5A to 3A ) 
 4. Add RESET 1x2 Pin header 
 
-V2.2 
+---
+
+**V2.2** 
 
 1. Add two thermistor sockets, a total of 6. 
 2. Change FAN0 to PA13，FAN1 to PA14
 3. Add pin definition silkscreen on the bottom.
 
-V2.3
+---
+
+**V2.3**
 
 1. Change 12v-24v RGB port layout to 3 fan ports, which can be used as a fan port more conveniently and still maintain RGB output support
 2. Optimize the fan control circuit, upgrade the buffer chip to independent triode control, enhance stability and greatly improve safety performance 
 3. All motor drive module interface communication networks add high voltage buffering and voltage clamping processing, adding a shield to the MCU 
 4. Re-layout the PCB, connectors position changed
+
+---
+
+**V3.0**
+
+1. Added 74HCT365 buffers for all stepper motor drive signals. All the motor drive IO signal voltages are changed from 3.3V to 5V, the driving ability is enhanced, and the external driver connettion is simpler.
+2. An onboard CAN transceiver is added to enable the mainboard to communicate directly with CAN devices, no need for expansion boards.
+3. A 3.3V power supply indicator is added, and different power supplies are indicated by LEDs of different colors, so that the working status of each power supply on the motherboard can be seen at a glance.
+4. The main board has been re-layouted, and all the marks are placed on the top layer, which makes it easier for users to view the marks of the pins and easier for firmware configuration.
+5. Connect the BOOT0 and RESET pins of the STM32 to the Pi's IO through the switch (disconnected by default), which provides the basis for directly entering the programming mode through the Pi. 
 
 # 2. Features
 
