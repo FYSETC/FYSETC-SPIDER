@@ -19,7 +19,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-#if defined(ARDUINO_ARCH_STM32) && !defined(STM32GENERIC)
+#include "../../platforms.h"
+
+#ifdef HAL_STM32
 
 #include "../../../inc/MarlinConfig.h"
 
@@ -44,7 +46,6 @@
 #define SDRAM_MODEREG_OPERATING_MODE_STANDARD    ((uint16_t)0x0000)
 #define SDRAM_MODEREG_WRITEBURST_MODE_PROGRAMMED ((uint16_t)0x0000)
 #define SDRAM_MODEREG_WRITEBURST_MODE_SINGLE     ((uint16_t)0x0200)
-
 
 void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM_CommandTypeDef *Command) {
 
@@ -182,7 +183,7 @@ void LTDC_Config() {
   hltdc_F.Init.AccumulatedVBP = (LTDC_LCD_VSYNC + LTDC_LCD_VBP - 1);
   hltdc_F.Init.AccumulatedActiveH = (TFT_HEIGHT + LTDC_LCD_VSYNC + LTDC_LCD_VBP - 1);
   hltdc_F.Init.AccumulatedActiveW = (TFT_WIDTH + LTDC_LCD_HSYNC + LTDC_LCD_HBP - 1);
-  hltdc_F.Init.TotalHeigh = (TFT_HEIGHT + LTDC_LCD_VSYNC + LTDC_LCD_VBP + LTDC_LCD_VFP - 1);
+  hltdc_F.Init.TotalHeight = (TFT_HEIGHT + LTDC_LCD_VSYNC + LTDC_LCD_VBP + LTDC_LCD_VFP - 1);
   hltdc_F.Init.TotalWidth = (TFT_WIDTH + LTDC_LCD_HSYNC + LTDC_LCD_HBP + LTDC_LCD_HFP - 1);
 
   /* Configure R,G,B component values for LCD background color : all black background */
@@ -192,7 +193,7 @@ void LTDC_Config() {
 
   hltdc_F.Instance = LTDC;
 
-/* Layer0 Configuration ------------------------------------------------------*/
+  /* Layer0 Configuration ------------------------------------------------------*/
 
   /* Windowing configuration */
   pLayerCfg.WindowX0 = 0;
@@ -204,7 +205,7 @@ void LTDC_Config() {
   pLayerCfg.PixelFormat = LTDC_PIXEL_FORMAT_RGB565;
 
   /* Start Address configuration : frame buffer is located at SDRAM memory */
-  pLayerCfg.FBStartAdress = (uint32_t)(FRAME_BUFFER_ADDRESS);
+  pLayerCfg.FBStartAddress = (uint32_t)(FRAME_BUFFER_ADDRESS);
 
   /* Alpha constant (255 == totally opaque) */
   pLayerCfg.Alpha = 255;
@@ -289,22 +290,21 @@ void TFT_LTDC::DrawRect(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint
   uint16_t offline = TFT_WIDTH - (ex - sx);
   uint32_t addr = (uint32_t)&framebuffer[(TFT_WIDTH * sy) + sx];
 
-  DMA2D->CR &= ~(1 << 0);
+  CBI(DMA2D->CR, 0);
   DMA2D->CR = 3 << 16;
   DMA2D->OPFCCR = 0X02;
   DMA2D->OOR = offline;
   DMA2D->OMAR = addr;
   DMA2D->NLR = (ey - sy) | ((ex - sx) << 16);
   DMA2D->OCOLR = color;
-  DMA2D->CR |= 1<<0;
+  SBI(DMA2D->CR, 0);
 
   uint32_t timeout = 0;
-  while((DMA2D->ISR & (1<<1)) == 0)
-  {
+  while (!TEST(DMA2D->ISR, 1)) {
     timeout++;
-    if(timeout>0X1FFFFF)break;
+    if (timeout > 0x1FFFFF) break;
   }
-  DMA2D->IFCR |= 1<<1;
+  SBI(DMA2D->IFCR, 1);
 }
 
 void TFT_LTDC::DrawImage(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uint16_t *colors) {
@@ -314,7 +314,7 @@ void TFT_LTDC::DrawImage(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uin
   uint16_t offline = TFT_WIDTH - (ex - sx);
   uint32_t addr = (uint32_t)&framebuffer[(TFT_WIDTH * sy) + sx];
 
-  DMA2D->CR &= ~(1 << 0);
+  CBI(DMA2D->CR, 0);
   DMA2D->CR = 0 << 16;
   DMA2D->FGPFCCR = 0X02;
   DMA2D->FGOR = 0;
@@ -322,15 +322,14 @@ void TFT_LTDC::DrawImage(uint16_t sx, uint16_t sy, uint16_t ex, uint16_t ey, uin
   DMA2D->FGMAR = (uint32_t)colors;
   DMA2D->OMAR = addr;
   DMA2D->NLR = (ey - sy) | ((ex - sx) << 16);
-  DMA2D->CR |= 1<<0;
+  SBI(DMA2D->CR, 0);
 
   uint32_t timeout = 0;
-  while((DMA2D->ISR & (1<<1)) == 0)
-  {
+  while (!TEST(DMA2D->ISR, 1)) {
     timeout++;
-    if(timeout>0X1FFFFF)break;
+    if (timeout > 0x1FFFFF) break;
   }
-  DMA2D->IFCR |= 1<<1;
+  SBI(DMA2D->IFCR, 1);
 }
 
 void TFT_LTDC::WriteData(uint16_t data) {
@@ -387,4 +386,4 @@ void TFT_LTDC::TransmitDMA(uint32_t MemoryIncrease, uint16_t *Data, uint16_t Cou
 }
 
 #endif // HAS_LTDC_TFT
-#endif // ARDUINO_ARCH_STM32 && !STM32GENERIC
+#endif // HAL_STM32

@@ -1,1 +1,1 @@
-firmware.bin 是 小钳子发送过来的 ，用于测试 SPIDER 407 的固件
+# pre-builds

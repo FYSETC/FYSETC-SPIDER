@@ -1,66 +1,51 @@
 # Klipper
 
-There are two firmwares for Spider board.
+## printer.cfg
 
-### 1 : Spider UART1 to RPI uart
+This in folder, there a `printer.cfg` file, this is an example Klipper configuration file for VORON2.4 machine. It is not copy-paste available config, you need to adjust the items in file, please read the file carefully, especially the first lines in the file. You need to change the items according to your machine.
 
-If you connect Spider UART1(RX1:PA10, TX1:PA9) port to RPI  uart0(TX:GPIO14,RX:GPIO15) port, then klipper-UART0.bin is the firmware you need to flash into Spider board. And in printer.cfg which is the example cfg for VORON 2 machine in this repo you need to change the serial to
-
-```
-serial: /dev/ttyAMA0
-```
-
-And  you need to switch hardware uart to GPIO14/GPIO15. You need to edit the following line in /boot/config.txt file
-
-```
-sudo nano /boot/cmdline.txt
-```
-
-remove the word phase "console=serial0,115200" or "console=ttyAMA0,115200", then
-
-```
-sudo reboot
+```\
+## *** THINGS TO CHANGE/CHECK: ***
+## Spider version                       Please search this file for "SpiderVersion" and uncomment the appropriate line for each
+## MCU paths                            [mcu] section
+## Thermistor types                     [extruder] and [heater_bed] sections - See 'sensor types' list at end of file
+## Z Endstop Switch location            [safe_z_home] section
+## Homing end position                  [gcode_macro G32] section
+## Z Endstop Switch  offset for Z0      [stepper_z] section
+## Probe points                         [quad_gantry_level] section
+## Min & Max gantry corner postions     [quad_gantry_level] section
+## PID tune                             [extruder] and [heater_bed] sections
+## Fine tune E steps                    [extruder] section
 ```
 
-Then enter RPI system again.
+## Connect RPI UART
 
-```
-sudo raspi-config
-```
+Please follow instruction here([github](https://github.com/FYSETC/FYSETC-SPIDER/blob/main/firmware/Klipper/Connect%20RPI%20uart.md) [gitee](https://gitee.com/fysetc/FYSETC-SPIDER/blob/main/firmware/Klipper/Connect%20RPI%20uart.md)).
 
-=> Interfacing Option
+## Pre-builds
 
-=> Serial
+For some beginners of Spider, i pre-build some firmwares for you, but i strongly recommend you to build the firmware yourself as Klipper update from time to time.  
 
-=> NO
+`klipper-USB.bin` : No bootloader offset, choose USB to communicate with raspberrypi.
 
-=> YES
+![image-20210705171431398](klipper-USB.png)
 
-```
-sudo nano /boot/config.txt
-```
+`klipper-UART.bin` : No bootloader offset, choose UART to communicate with raspberrypi.
 
-Add `dtoverlay=pi3-disable-bt` at the end of the file. Then reboot again.
+![image-20210705171345175](klipper-UART.png)
 
-```
-sudo reboot
-```
+`klipper-32k-USB.bin` : `0x8000(32k)` bootloader offset, choose USB to communicate with raspberrypi.
 
-Done.
+![image-20210705171253316](klipper-32k-USB.png)
 
-The main point to build klipper-UART0.bin is that you need to select `Communication interface` to `Serial (on USART1 PA10/PA9)` in `make menuconfig` when you compile Klipper.
+`klipper-32k-UART.bin` : `0x8000(32k)` bootloader offset, choose UART to communicate with raspberrypi.
 
-We make a cable as below , and it have the power cable in it two, so you can power the RPI with it.
+![image-20210705171253316](klipper-32k-UART.png)
 
-![](cable.jpg)
+`klipper-64k-USB.bin` : `0x10000(64k)` bootloader offset, choose USB to communicate with raspberrypi.
 
-### 2 : USB type-c cable
+![image-20210705171513501](klipper-64k-USB.png)
 
-If the communication between Spider board and RPI is on an USB type-C cable. Then klipper.bin is the firmware for you. And in printer.cfg you need to set the serial as below.
-```
-Obtain definition by "ls -l /dev/serial/by-id/" then unplug to verify
-##--------------------------------------------------------------------
-serial: /dev/serial/by-id/usb-Klipper_stm32f446xx_230032000851363131363530-if00
-```
+`klipper-64k-UART.bin` : `0x10000(64k)` bootloader offset, choose UART to communicate with raspberrypi.
 
-The main point to build klipper.bin is that you need to select `Communication interface` to `USB` in `make menuconfig` when you compile Klipper for Spider.
+![image-20210705171535093](klipper-64k-UART.png)

@@ -38,7 +38,7 @@
   // portModeRegister takes a different argument
   #define digitalPinToTimer_DEBUG(p) digitalPinToTimer(p)
   #define digitalPinToBitMask_DEBUG(p) digitalPinToBitMask(p)
-  #define digitalPinToPort_DEBUG(p) digitalPinToPort_Teensy(p)
+  #define digitalPinToPort_DEBUG(p) digitalPinToPort(p)
   #define GET_PINMODE(pin) (*portModeRegister(pin) & digitalPinToBitMask_DEBUG(pin))
 
 #elif AVR_ATmega2560_FAMILY_PLUS_70   // So we can access/display all the pins on boards using more than 70
@@ -393,3 +393,4 @@ static void pwm_details(uint8_t pin) {
 #endif
 
 #define PRINT_PIN(p) do{ sprintf_P(buffer, PSTR("%3d "), p); SERIAL_ECHO(buffer); }while(0)
+#define PRINT_PIN_ANALOG(p) do{ sprintf_P(buffer, PSTR(" (A%2d)  "), DIGITAL_PIN_TO_ANALOG_PIN(pin)); SERIAL_ECHO(buffer); }while(0)

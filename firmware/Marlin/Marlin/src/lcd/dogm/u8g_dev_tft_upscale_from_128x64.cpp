@@ -83,7 +83,8 @@ TFT_IO tftio;
 #define X_HI (UPSCALE(TFT_PIXEL_OFFSET_X, WIDTH) - 1)
 #define Y_HI (UPSCALE(TFT_PIXEL_OFFSET_Y, HEIGHT) - 1)
 
-// see https://ee-programming-notepad.blogspot.com/2016/10/16-bit-color-generator-picker.html
+// 16 bit color generator: https://ee-programming-notepad.blogspot.com/2016/10/16-bit-color-generator-picker.html
+// RGB565 color picker:  https://trolsoft.ru/en/articles/rgb565-color-picker
 
 #define COLOR_BLACK       0x0000  // #000000
 #define COLOR_WHITE       0xFFFF  // #FFFFFF
@@ -91,7 +92,7 @@ TFT_IO tftio;
 #define COLOR_GREY        0x7BEF  // #808080
 #define COLOR_DARKGREY    0x4208  // #404040
 #define COLOR_DARKGREY2   0x39E7  // #303030
-#define COLOR_DARK        0x0003  // Some dark color
+#define COLOR_DARK        0x0003  // #000019
 
 #define COLOR_RED         0xF800  // #FF0000
 #define COLOR_LIME        0x7E00  // #00FF00
@@ -389,9 +390,7 @@ uint8_t u8g_dev_tft_320x240_upscale_from_128x64_fn(u8g_t *u8g, u8g_dev_t *dev, u
 
       LOOP_L_N(y, PAGE_HEIGHT) {
         uint32_t k = 0;
-        #if HAS_LCD_IO
-          buffer = (y & 1) ? bufferB : bufferA;
-        #endif
+        TERN_(HAS_LCD_IO, buffer = (y & 1) ? bufferB : bufferA);
         for (uint16_t i = 0; i < (uint32_t)pb->width; i++) {
           const uint8_t b = *(((uint8_t *)pb->buf) + i);
           const uint16_t c = TEST(b, y) ? TFT_MARLINUI_COLOR : TFT_MARLINBG_COLOR;
