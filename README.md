@@ -12,7 +12,7 @@
 * [3.2 Wiring : FYSETC mini 12864 v2.1](#32-wiring--fysetc-mini-12864-v21)
   * [注意/NOTICE：](#notice)
   * [Wiring](#wiring)
-* [3.3 Wiring : TMC2209](#33-wiring--tmc2209)
+* [3.3 Wiring TMC2209](#33-tmc2209)
 * [3.4 Wiring](#34-wiring)
 * [3.5 Pin Out](#35-pin-out)
 * [3.6 Pin Definition](#36-pin-definition)
@@ -209,7 +209,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 | ![](images/mini12864-2.jpg) | ![](images/mini12864-3.jpg) |
 | --------------------------- | --------------------------- |
 
-## 3.3 Wiring : TMC2209
+## 3.3 TMC2209
 
 ![](images/TMC2209.JPG)
 
