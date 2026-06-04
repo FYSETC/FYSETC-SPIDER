@@ -1,22 +1,29 @@
 [1. Product Introduction](#1-product-introduction)
 
 * [1.1 Change log](#11-change-log)
-  - [1.1.1 Spider v1.1](#111-spider-v11)
-  - [1.1.2 Spider v2.x](#112-spider-v2x)
+  * [Spider v1.1](#v11)
+  * [Spider v2.x](#v20)
+  * [Spider v3.x](#v30)
 
 [2. Features](#2-features)
 
 [3. Hardware Guide](#3-hardware-guide)
 
-* [3.1 Spider wiring](#31-spider-wiring)
+* [3.1 Spider Wiring](#31-spider-wiring)
+  * [Spider V1.x](#311-spider-v10-wiring)
+  * [Spider V2.x](#313-spider-v22-wiring)
+  * [Spider V3.x](#315-spider-v30-wiring)
 * [3.2 Wiring : FYSETC mini 12864 v2.1](#32-wiring--fysetc-mini-12864-v21)
   * [注意/NOTICE：](#notice)
   * [Wiring](#wiring)
-* [3.3 Wiring TMC2209](#33-tmc2209)
+* [3.3 TMC2209 Pinout](#33-tmc2209)
 * [3.4 Wiring](#34-wiring)
   * [3.4.1 Wiring Raspberry Pi](#341-raspberry-pi)
   * [3.4.2 Wiring CAN Bus](#342-can)
 * [3.5 Pin Out](#35-pin-out)
+  * [Spider V1.x](#351-spider-v1x)
+  * [Spider V2.x](#352-spider-v22)
+  * [Spider V3.x](#354-spider-v30)
 * [3.6 Pin Definition](#36-pin-definition)
 
 [4. Firmware Guide](#4-firmware-guide)
@@ -59,7 +66,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ## 1.1 Change log
 
-**V1.1**
+### **V1.1**
 
 1. Add 5pin connector for BL-Touch
 
@@ -73,7 +80,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ---
 
-**V2.0** 
+### **V2.0** 
 
 1. Add 48V stepstick support x3 
 2. Add TVS and Bleeding resistance to every stepstick socket 
@@ -86,7 +93,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ---
 
-**V2.1** 
+### **V2.1** 
 
 1. Change 48V stepstick support to 2 
 2. Change 12V/5A to 12V/3A 
@@ -95,7 +102,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ---
 
-**V2.2** 
+### **V2.2** 
 
 1. Add two thermistor sockets, a total of 6. 
 2. Change FAN0 to PA13，FAN1 to PA14
@@ -103,7 +110,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ---
 
-**V2.3**
+### **V2.3**
 
 1. Change 12v-24v RGB port layout to 3 fan ports, which can be used as a fan port more conveniently and still maintain RGB output support
 2. Optimize the fan control circuit, upgrade the buffer chip to independent triode control, enhance stability and greatly improve safety performance 
@@ -112,7 +119,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ---
 
-**V3.0**
+### **V3.0**
 
 1. Added 74HCT365 buffers for all stepper motor drive signals. All the motor drive IO signal voltages are changed from 3.3V to 5V, the driving ability is enhanced, and the external driver connettion is simpler.
 2. An onboard CAN transceiver is added to enable the mainboard to communicate directly with CAN devices, no need for expansion boards.
