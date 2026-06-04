@@ -14,8 +14,8 @@
   * [Wiring](#wiring)
 * [3.3 Wiring TMC2209](#33-tmc2209)
 * [3.4 Wiring](#34-wiring)
-  * [3.4.1 Wiring](#341-raspberry-pi)
-  * [3.4.2 Wiring](#341-raspberry-pi)
+  * [3.4.1 Wiring Raspberry Pi](#341-raspberry-pi)
+  * [3.4.2 Wiring CAN Bus](#342-can)
 * [3.5 Pin Out](#35-pin-out)
 * [3.6 Pin Definition](#36-pin-definition)
 
@@ -227,7 +227,7 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ![](images/spider2.3_rpi.png)
 
-##### CAN BUS
+#### 3.4.2 CAN
 
 If you want to enable Spider CANBUS network in Klipper, please check 4.2.1 chapter `Communication interface` section.
 
