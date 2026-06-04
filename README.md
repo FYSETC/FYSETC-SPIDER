@@ -13,7 +13,7 @@
   * [注意/NOTICE：](#notice)
   * [Wiring](#wiring)
 * [3.3 Wiring : TMC2209](#33-wiring--tmc2209)
-* [3.4 Wiring : RaspberryPi](#34-wiring--raspberrypi)
+* [3.4 Wiring : RaspberryPi](https://github.com/FYSETC/FYSETC-SPIDER/edit/main/README.md#34-wiring)
 * [3.5 Pin Out](#35-pin-out)
 * [3.6 Pin Definition](#36-pin-definition)
 
@@ -213,9 +213,11 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ![](images/TMC2209.JPG)
 
-## 3.4 Wiring : RaspberryPi
+### 3.4 Wiring
 
-##### Spider 1.x, Spider 2.2
+#### 3.4.1 Raspberry Pi
+
+##### Spider 1.x, Spider 2.2, Spider 3.0
 
 ![](images/spider_rpi.png)
 
