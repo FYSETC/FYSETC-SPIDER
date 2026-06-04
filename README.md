@@ -748,14 +748,14 @@ Try to set `No bootloader` bootloader offset in Klipper `make menuconfig`.This o
 
 # 6. How to buy
 
-- [FYSETC](https://www.fysetc.com/products/pre-sale-fysetc-spider-v1-0-motherboard-32bit-controller-board-tmc2208-tmc2209-3d-printer-part-replace-skr-v1-3-for-voron?variant=39404109267119)
+- [FYSETC](https://www.fysetc.com/search?q=Spider*&type=product)
 - [Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.30.511751bfpMtaWP&id=649360814769&ns=1&abbucket=18#detail)
 - [Aliexpress](https://www.aliexpress.com/item/1005002324070189.html)
 
 # 7. Tech Support
 
 You can submit issue in our github https://github.com/FYSETC/FYSETC-SPIDER/issues
-Or submit any technical issue into our [forum](http://forum.fysetc.com/)
+Or submit any technical issue into our [Discord](https://discord.gg/RXuwedUkB9)
 
 # 8. Related Articles
 
