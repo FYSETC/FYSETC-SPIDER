@@ -194,6 +194,17 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 ![](images/Spider_V2.3_ToolHead_Wiring.png)
 
+#### 3.1.5 Spider v3.0 wiring
+
+##### Spider v3.0 wiring for VORON 2.4
+
+![](https://resource-wangsu.helplook.net/docker_production/r1hy6v/article/kaUIjIb7/6a2151b02cf03.png)
+
+##### Spider v3.0 wiring for VORON Trident
+
+![](https://resource-wangsu.helplook.net/docker_production/r1hy6v/article/kaUIjIb7/6a2151cb23370.png)
+
+
 ## 3.2 Wiring : FYSETC mini 12864 v2.1
 
 ### 注意/NOTICE：
@@ -229,9 +240,15 @@ You can build a 3D printer with rich functions through SPIDER. Especially for VO
 
 #### 3.4.2 CAN
 
-If you want to enable Spider CANBUS network in Klipper, please check 4.2.1 chapter `Communication interface` section.
-
+If you want to enable a CANBUS network in klipper on the Spider board, please check 4.2.1 chapter `Communication interface` section.
+##### Spider 2.x
 ![](images/CANBUS.jpg)
+
+##### Spider 3.0
+
+The Spider v3.0 has an internal CAN transciever, There is a permanent 120 ohm termination resistor soldered to the board, no need to add a jumper to enable it and also no ability to disable it.
+The CAN port is a JST-XH header located here;
+![](https://resource-wangsu.helplook.net/docker_production/r1hy6v/article/kaUIjIb7/6a2154aaea754.png)
 
 ## 3.5 Pin Out
 
@@ -246,6 +263,10 @@ If you want to enable Spider CANBUS network in Klipper, please check 4.2.1 chapt
 ### 3.5.3 Spider v2.3
 
 ![](images/Spider_V2.3_Pinout.jpg)
+
+#### 3.5.4 Spider v3.0
+
+![](https://resource-wangsu.helplook.net/docker_production/r1hy6v/article/kaUIjIb7/6a2150f462398.png)
 
 ## 3.6 Pin Definition
 
