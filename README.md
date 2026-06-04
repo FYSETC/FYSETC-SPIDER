@@ -13,7 +13,7 @@
   * [注意/NOTICE：](#notice)
   * [Wiring](#wiring)
 * [3.3 Wiring : TMC2209](#33-wiring--tmc2209)
-* [3.4 Wiring : RaspberryPi](https://github.com/FYSETC/FYSETC-SPIDER/edit/main/README.md#34-wiring)
+* [3.4 Wiring](#34-wiring)
 * [3.5 Pin Out](#35-pin-out)
 * [3.6 Pin Definition](#36-pin-definition)
 
